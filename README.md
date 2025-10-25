@@ -1,1 +1,1 @@
-#SSRT-SuperSamsamRayTracer-
+This project is just an excuse to learn C++, improve my english as a French people, and know how work a Raytracer engine (for years, I've used for Study and fun Arnold/Redshift/Octane/Vray/Iray and many more)
