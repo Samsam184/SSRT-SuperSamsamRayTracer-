@@ -8,7 +8,7 @@
 #include "texture.h"
 #include <iostream>
 #include <fstream>
-#include <ImfRgbaFile.h>
+
 
 void static_spheres() {
     
@@ -79,8 +79,6 @@ void static_spheres() {
     
 }
 
-
-
 void checkered_spheres() {
     hittable_list world;
 
@@ -130,11 +128,8 @@ void earth() {
 }
 
 
-
 int main() {
     
-    std::cout << "OpenEXR est bien linké et fonctionnel" << std::end1;
-    return 0;
     switch (3) {
     case 1: static_spheres(); break;
     case 2: checkered_spheres(); break;

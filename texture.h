@@ -3,8 +3,7 @@
 
 
 #include "rtw_stb_image.h"
-
-
+#include "rtw_exr_image.h"
 
 class texture {
 	public:
@@ -49,9 +48,9 @@ private:
 	shared_ptr<texture> odd;
 };
 
-class image_texture :public texture {
+class other_image_texture :public texture {
 public:
-	image_texture(const char* filename) : image(filename) {}
+	other_image_texture(const char* filename) : image(filename) {}
 
 	color value(double u, double v, const point3& p) const override {
 		if (image.height() <= 0) return color(0, 1, 1);
@@ -68,5 +67,51 @@ public:
 	}
 private: 
 	rtw_image image;
+};
+
+class exr_image_texture : public texture {
+public: 
+	exr_image_texture(const char* filename) : image(filename){}
+	color value(double u, double v, const point3& p) const override {
+		if (image.height() <= 0) return color(0, 1, 1);
+
+		u = interval(0, 1).clamp(u);
+		v = 1.0 - interval(0, 1).clamp(v);
+
+		auto i = int(u * image.width());
+		auto j = int(v * image.height());
+		auto pixel = image.pixel_data(i, j);
+
+		return color(pixel[0], pixel[1], pixel[2]);
+	}
+private: 
+	rtw_exr_image image;
+};
+
+class image_texture : public texture {
+public: 
+	image_texture(const char* filename) {
+		std::string name(filename);
+		std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+
+		if (ends_with(name, ".exr") || ends_with(name, ".hdr")) {
+			inner_texture = std::make_shared<exr_image_texture>(filename);
+		}
+		else {
+			inner_texture = std::make_shared<other_image_texture>(filename);
+		}
+	}
+
+	color value(double u, double v, const point3& p) const override {
+		if (!inner_texture) return color(1, 0, 1); //magenta pour debug
+		return inner_texture->value(u, v, p);
+	}
+private:
+	std::shared_ptr<texture>inner_texture;
+
+	static bool ends_with(const std::string& str, const std::string& suffix) {
+		if (suffix.size() > str.size()) return false;
+		return std::equal(suffix.rbegin(), suffix.rend(), str.rbegin());
+	}
 };
 #endif

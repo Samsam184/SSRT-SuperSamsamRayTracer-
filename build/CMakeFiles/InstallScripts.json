@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/SSRT/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
