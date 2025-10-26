@@ -412,6 +412,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\SSRT\main.cc" />
     <ClInclude Include="D:\SSRT\rtw_exr_image.h" />
     <ClInclude Include="D:\SSRT\perlin.h" />
+    <ClInclude Include="D:\SSRT\quad.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
