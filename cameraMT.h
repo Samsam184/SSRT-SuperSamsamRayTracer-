@@ -12,12 +12,18 @@
 #include <random>
 #include <mutex>
 
+enum class OutputFormat {
+    PPM,
+    EXR
+};
+
 
 class camera {
 public: 
 
+    OutputFormat output_format = OutputFormat::EXR;
     //variables
-    double aspect_ratio = 1;
+    double aspect_ratio = 16.0/9.0;
     int image_width = 100;
     int samples_per_pixel = 10;
     int max_depth = 10;
@@ -97,12 +103,24 @@ public:
         for (auto& th : threads) {
             th.join();
         }
-
-        for (int j = 0; j < image_height; j++) {
-            for (int i = 0; i < image_width; i++) {
-                write_color(out, framebuffer[j * image_width + i]);
+        if (output_format == OutputFormat::PPM) {
+            for (int j = 0; j < image_height; j++) {
+                for (int i = 0; i < image_width; i++) {
+                    write_color(out, framebuffer[j * image_width + i]);
+                }
             }
         }
+        else if(output_format == OutputFormat::EXR)
+        {
+            
+            std::cout << "Image width  = " << image_width << std::endl;
+            std::cout << "Image height = " << image_height << std::endl;
+            std::cout << "Framebuffer size = " << framebuffer.size() << std::endl;
+            std::cout << "Expected size    = " << (image_width * image_height) << std::endl;
+
+            write_exr("image_linear_ACEScg.exr", framebuffer, image_width, image_height);
+        }
+
 
         std::clog << "\nRender Ended Correctly!! \n\n";
     }
@@ -125,7 +143,7 @@ private:
 
     void initialize() {
 
-        image_height = image_width / aspect_ratio;
+        image_height = static_cast<int>(image_width / aspect_ratio);
         image_height = (image_height < 1) ? 1 : image_height;
 
 
