@@ -11,17 +11,10 @@
 #include <atomic>
 #include <random>
 #include <mutex>
-
-enum class OutputFormat {
-    PPM,
-    EXR
-};
-
+#include "image_io.h"
 
 class camera {
 public: 
-
-    OutputFormat output_format = OutputFormat::EXR;
     //variables
     double aspect_ratio = 16.0/9.0;
     int image_width = 100;
@@ -58,8 +51,8 @@ public:
 
         initialize();
 
-        std::ofstream out("image.ppm", std::ios::out | std::ios::binary);
-        out << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+        //std::ofstream out("image.ppm", std::ios::out | std::ios::binary);
+        //out << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
         std::vector<color> framebuffer(image_width * image_height);
 
@@ -103,25 +96,22 @@ public:
         for (auto& th : threads) {
             th.join();
         }
-        if (output_format == OutputFormat::PPM) {
-            for (int j = 0; j < image_height; j++) {
-                for (int i = 0; i < image_width; i++) {
-                    write_color(out, framebuffer[j * image_width + i]);
-                }
-            }
-        }
-        else if(output_format == OutputFormat::EXR)
-        {
-            
-            std::cout << "Image width  = " << image_width << std::endl;
-            std::cout << "Image height = " << image_height << std::endl;
-            std::cout << "Framebuffer size = " << framebuffer.size() << std::endl;
-            std::cout << "Expected size    = " << (image_width * image_height) << std::endl;
-
-            write_exr("image_linear_ACEScg.exr", framebuffer, image_width, image_height);
-        }
 
 
+        //if (output_format == OutputFormat::PPM) {
+        //    for (int j = 0; j < image_height; j++) {
+        //        for (int i = 0; i < image_width; i++) {
+        //            write_color(out, framebuffer[j * image_width + i]);
+        //        }
+        //    }
+        //}
+        //else if(output_format == OutputFormat::EXR)
+        //{
+        //    write_exr("image_linear_ACEScg.exr", framebuffer, image_width, image_height);
+        //}
+
+        save_image("image_sRGB_Display.png", framebuffer, image_width, image_height);
+        
         std::clog << "\nRender Ended Correctly!! \n\n";
     }
     

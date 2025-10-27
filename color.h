@@ -10,7 +10,7 @@ namespace OCIO = OCIO_NAMESPACE;
 using color = vec3;
 
 extern bool is_colorSpace_gamma = false;
-
+/*
 inline double linear_to_gamma(double linear_component) {
     if (linear_component > 0) {
         return std::sqrt(linear_component);
@@ -19,35 +19,17 @@ inline double linear_to_gamma(double linear_component) {
         return 0;
     }
 }
-
-inline color ocio_transform(const color& in_col) {
-
-        static OCIO::ConstConfigRcPtr config = OCIO::Config::CreateFromFile("D:/SSRT/cg-config-v2.2.0_aces-v1.3_ocio-v2.4.ocio");
-
-        static OCIO::ConstProcessorRcPtr processor = config->getProcessor("ACEScg", "sRGB - Display");
-
-        color out_col = in_col;
-
-        float pixels[3] = { (float)out_col.x(), (float)out_col.y(), (float)out_col.z() };
-        OCIO::PackedImageDesc imgDesc(pixels, 1, 1, 3);
-        processor->getDefaultCPUProcessor()->apply(imgDesc);
-
-        return color(pixels[0], pixels[1], pixels[2]);
-
-}
-
+*/
 void write_color(std::ostream& out, color& pixel_color) {
-
-    pixel_color = ocio_transform(pixel_color);
 
     auto r = pixel_color.x();
     auto g = pixel_color.y();
     auto b = pixel_color.z();
-
+    /*
     if (is_colorSpace_gamma) {
         pixel_color = color(linear_to_gamma(r), linear_to_gamma(g), linear_to_gamma(b));
     }
-    
+    */
     static const interval intensity(0.000, 0.999);
     int rbyte = int(256 * intensity.clamp(r));
     int gbyte = int(256 * intensity.clamp(g));
@@ -57,6 +39,7 @@ void write_color(std::ostream& out, color& pixel_color) {
     out << rbyte << ' ' << gbyte << ' ' << bbyte << '\n';
 }
 
+/*
 inline bool write_exr(const std::string& filename, const std::vector<color>& framebuffer, int width, int height) {
     EXRHeader header;
     InitEXRHeader(&header);
@@ -123,5 +106,5 @@ inline bool write_exr(const std::string& filename, const std::vector<color>& fra
     std::cout << "Saved Linear EXR: " << filename << std::endl;
     return true;
 }
-
+*/
 #endif

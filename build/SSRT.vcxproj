@@ -414,6 +414,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\SSRT\perlin.h" />
     <ClInclude Include="D:\SSRT\quad.h" />
     <ClInclude Include="D:\SSRT\tryOCIO.h" />
+    <ClInclude Include="D:\SSRT\image_io.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

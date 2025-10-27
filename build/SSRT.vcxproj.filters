@@ -18,6 +18,9 @@
     <ClInclude Include="D:\SSRT\tryOCIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\SSRT\image_io.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\SSRT\CMakeLists.txt" />
