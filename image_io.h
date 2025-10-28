@@ -17,6 +17,21 @@ namespace OCIO = OCIO_NAMESPACE;
 
 using color = vec3;
 
+inline color ocio_transform_raw_to_acescg(const color& in_col) {
+
+    static OCIO::ConstConfigRcPtr config = OCIO::Config::CreateFromFile("D:/SSRT/cg-config-v2.2.0_aces-v1.3_ocio-v2.4.ocio");
+
+    static OCIO::ConstProcessorRcPtr processor = config->getProcessor("RAW", "ACEScg");
+
+    color out_col = in_col;
+
+    float pixels[3] = { (float)out_col.x(), (float)out_col.y(), (float)out_col.z() };
+    OCIO::PackedImageDesc imgDesc(pixels, 1, 1, 3);
+    processor->getDefaultCPUProcessor()->apply(imgDesc);
+
+    return color(pixels[0], pixels[1], pixels[2]);
+
+}
 
 bool write_exr(const std::string& filename, const std::vector<color>& framebuffer, int width, int height) {
     EXRHeader header;
@@ -34,7 +49,7 @@ bool write_exr(const std::string& filename, const std::vector<color>& framebuffe
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {
             int idx = j * width + i;
-            const color& c = framebuffer[idx];
+            const color& c = ocio_transform_raw_to_acescg(framebuffer[idx]);
 
             images[0][idx] = c.z();
             images[1][idx] = c.y();
@@ -55,11 +70,8 @@ bool write_exr(const std::string& filename, const std::vector<color>& framebuffe
     header.num_channels = 3;
     header.channels = (EXRChannelInfo*)malloc(sizeof(EXRChannelInfo) * 3);
     strncpy(header.channels[0].name, "B", 255);
-    header.channels[0].name[1] = '\0';
     strncpy(header.channels[1].name, "G", 255);
-    header.channels[1].name[1] = '\0';
     strncpy(header.channels[2].name, "R", 255);
-    header.channels[2].name[1] = '\0';
 
     header.pixel_types = (int*)malloc(sizeof(int) * 3);
     header.requested_pixel_types = (int*)malloc(sizeof(int) * 3);
@@ -85,11 +97,11 @@ bool write_exr(const std::string& filename, const std::vector<color>& framebuffe
     return true;
 }
 
-inline color ocio_transform(const color& in_col) {
+inline color ocio_transform_acescg_to_srgb(const color& in_col) {
 
     static OCIO::ConstConfigRcPtr config = OCIO::Config::CreateFromFile("D:/SSRT/cg-config-v2.2.0_aces-v1.3_ocio-v2.4.ocio");
 
-    static OCIO::ConstProcessorRcPtr processor = config->getProcessor("ACEScg", "sRGB - Display");
+    static OCIO::ConstProcessorRcPtr processor = config->getProcessor("RAW", "sRGB - Display");
 
     color out_col = in_col;
 
@@ -100,6 +112,8 @@ inline color ocio_transform(const color& in_col) {
     return color(pixels[0], pixels[1], pixels[2]);
 
 }
+
+
 
 inline void save_image(const std::string& filename, std::vector<color>& framebuffer, int width, int height) {
     if (filename.ends_with(".exr")) {
@@ -112,9 +126,7 @@ inline void save_image(const std::string& filename, std::vector<color>& framebuf
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {
             int idx = j * width + i;
-            color& c = framebuffer[idx];
-
-            c = ocio_transform(c);
+            color c = ocio_transform_acescg_to_srgb(framebuffer[idx]);
 
             auto r = static_cast<unsigned char>(255.999 * std::clamp(c.x(), 0.0, 0.999));
             auto g = static_cast<unsigned char>(255.999 * std::clamp(c.y(), 0.0, 0.999));

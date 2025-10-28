@@ -110,7 +110,7 @@ public:
         //    write_exr("image_linear_ACEScg.exr", framebuffer, image_width, image_height);
         //}
 
-        save_image("image_sRGB_Display.png", framebuffer, image_width, image_height);
+        save_image("renders/SSRT_nonLinear.png", framebuffer, image_width, image_height);
         
         std::clog << "\nRender Ended Correctly!! \n\n";
     }

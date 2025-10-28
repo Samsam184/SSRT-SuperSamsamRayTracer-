@@ -248,8 +248,15 @@ void cornell_box() {
         world.add(make_shared<quad>(point3(555, 555, 555), vec3(-555, 0, 0), vec3(0, 0, -555), white));
         world.add(make_shared<quad>(point3(0, 0, 555), vec3(555, 0, 0), vec3(0, 555, 0), white));
 
-        world.add(box(point3(130, 0, 65), point3(295, 165, 230), white));
-        world.add(box(point3(265, 0, 295), point3(430, 330, 460), white));
+        shared_ptr<hittable> box1 = box(point3(0, 0, 0), point3(165, 330, 165), white);
+        box1 = make_shared<rotate_y>(box1, 25);
+        box1 = make_shared<translate>(box1, vec3(265, 0, 295));
+        world.add(box1);
+
+        shared_ptr<hittable> box2 = box(point3(0, 0, 0), point3(165, 165, 165), white);
+        box2 = make_shared<rotate_y>(box2, -18);
+        box2 = make_shared<translate>(box2, vec3(130, 0, 65));
+        world.add(box2);
 
         world = hittable_list(make_shared<bvh_node>(world));
 
@@ -257,7 +264,7 @@ void cornell_box() {
 
         cam.aspect_ratio = 1.0;
         cam.image_width = 1280;
-        cam.samples_per_pixel = 200;
+        cam.samples_per_pixel = 20;
         cam.max_depth = 50;
         cam.background = color(0, 0, 0);
 
@@ -273,6 +280,7 @@ void cornell_box() {
         is_colorSpace_gamma = true;
     
 }
+
 
 
 int main() {
