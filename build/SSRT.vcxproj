@@ -87,6 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include" /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include/miniz"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -111,10 +112,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -134,7 +135,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\debug\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\debug\lib\OpenColorIO.lib;C:\Users\assam\vcpkg\installed\x64-windows\debug\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\debug\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\debug\lib\OpenColorIO.lib;D:\SSRT\external\oidn-2.3.3.x64.windows\lib\OpenImageDenoise.lib;C:\Users\assam\vcpkg\installed\x64-windows\debug\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -153,6 +154,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include" /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include/miniz"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -178,10 +180,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -201,7 +203,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\OpenColorIO.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\OpenColorIO.lib;D:\SSRT\external\oidn-2.3.3.x64.windows\lib\OpenImageDenoise.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -220,6 +222,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include" /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include/miniz"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -245,10 +248,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -268,7 +271,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\OpenColorIO.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\OpenColorIO.lib;D:\SSRT\external\oidn-2.3.3.x64.windows\lib\OpenImageDenoise.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -287,6 +290,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include" /external:I "C:/Users/assam/vcpkg/installed/x64-windows/include/miniz"</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
@@ -311,10 +315,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\SSRT\external\oidn-2.3.3.x64.windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include;C:\Users\assam\vcpkg\installed\x64-windows\include\miniz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -334,7 +338,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\OpenColorIO.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\assam\vcpkg\installed\x64-windows\lib\tinyexr.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\OpenColorIO.lib;D:\SSRT\external\oidn-2.3.3.x64.windows\lib\OpenImageDenoise.lib;C:\Users\assam\vcpkg\installed\x64-windows\lib\miniz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <DataExecutionPrevention></DataExecutionPrevention>
@@ -413,8 +417,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\SSRT\rtw_exr_image.h" />
     <ClInclude Include="D:\SSRT\perlin.h" />
     <ClInclude Include="D:\SSRT\quad.h" />
-    <ClInclude Include="D:\SSRT\tryOCIO.h" />
     <ClInclude Include="D:\SSRT\image_io.h" />
+    <ClInclude Include="D:\SSRT\constant_medium.h" />
+    <ClInclude Include="D:\SSRT\OIDN.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

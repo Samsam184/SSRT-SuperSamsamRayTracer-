@@ -98,7 +98,7 @@ events:
       The output was:
       0
       Version MSBuild 17.14.23+b0019275e pour .NET Framework
-      La g├®n├®ration a d├®marr├® 26/10/2025 15:22:59.
+      La g├®n├®ration a d├®marr├® 29/10/2025 20:09:31.
       
       Projet "D:\\SSRT\\build\\CMakeFiles\\4.1.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
       PrepareForBuild:
@@ -136,7 +136,7 @@ events:
           0 Avertissement(s)
           0 Erreur(s)
       
-      Temps ├®coul├® 00:00:01.09
+      Temps ├®coul├® 00:00:00.83
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -489,6 +489,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -975,6 +976,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -1355,6 +1357,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -1756,6 +1759,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -2136,6 +2140,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -2205,6 +2210,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -2258,6 +2264,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -2311,6 +2318,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -2379,6 +2387,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/rc"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc"
@@ -2538,6 +2549,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/rc"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc"
@@ -2697,6 +2711,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/rc"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/rc"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc.com"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc.exe"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/rc"
@@ -2720,6 +2737,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -2774,8 +2792,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-el0k6c"
-      binary: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-el0k6c"
+      source: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b"
+      binary: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -2789,40 +2807,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-el0k6c'
+        Change Dir: 'D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_152d5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d30fc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Version MSBuild 17.14.23+b0019275e pour .NET Framework
-        La g├®n├®ration a d├®marr├® 26/10/2025 15:23:00.
+        La g├®n├®ration a d├®marr├® 29/10/2025 20:09:32.
         
-        Projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-el0k6c\\cmTC_152d5.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
+        Projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\cmTC_d30fc.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
         PrepareForBuild:
-          Cr├®ation du r├®pertoire "cmTC_152d5.dir\\Debug\\".
+          Cr├®ation du r├®pertoire "cmTC_d30fc.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Cr├®ation du r├®pertoire "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-el0k6c\\Debug\\".
-          Cr├®ation du r├®pertoire "cmTC_152d5.dir\\Debug\\cmTC_152d5.tlog\\".
+          Cr├®ation du r├®pertoire "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\Debug\\".
+          Cr├®ation du r├®pertoire "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\".
         InitializeBuildStatus:
-          Cr├®ation de "cmTC_152d5.dir\\Debug\\cmTC_152d5.tlog\\unsuccessfulbuild", car "AlwaysCreate" a ├®t├® sp├®cifi├®.
-          Mise ├á jour de l'horodatage "cmTC_152d5.dir\\Debug\\cmTC_152d5.tlog\\unsuccessfulbuild".
+          Cr├®ation de "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\unsuccessfulbuild", car "AlwaysCreate" a ├®t├® sp├®cifi├®.
+          Mise ├á jour de l'horodatage "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_152d5.dir\\Debug\\\\" /Fd"cmTC_152d5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_d30fc.dir\\Debug\\\\" /Fd"cmTC_d30fc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35219 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_152d5.dir\\Debug\\\\" /Fd"cmTC_152d5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_d30fc.dir\\Debug\\\\" /Fd"cmTC_d30fc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-el0k6c\\Debug\\cmTC_152d5.exe" /INCREMENTAL /ILK:"cmTC_152d5.dir\\Debug\\cmTC_152d5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-el0k6c/Debug/cmTC_152d5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-el0k6c/Debug/cmTC_152d5.lib" /MACHINE:X64  /machine:x64 cmTC_152d5.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_152d5.vcxproj -> D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-el0k6c\\Debug\\cmTC_152d5.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\Debug\\cmTC_d30fc.exe" /INCREMENTAL /ILK:"cmTC_d30fc.dir\\Debug\\cmTC_d30fc.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b/Debug/cmTC_d30fc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b/Debug/cmTC_d30fc.lib" /MACHINE:X64  /machine:x64 cmTC_d30fc.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_d30fc.vcxproj -> D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\Debug\\cmTC_d30fc.exe
         FinalizeBuildStatus:
-          Suppression du fichier "cmTC_152d5.dir\\Debug\\cmTC_152d5.tlog\\unsuccessfulbuild".
-          Mise ├á jour de l'horodatage "cmTC_152d5.dir\\Debug\\cmTC_152d5.tlog\\cmTC_152d5.lastbuildstate".
-        G├®n├®ration du projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-el0k6c\\cmTC_152d5.vcxproj" termin├®e (cibles par d├®faut).
+          Suppression du fichier "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\unsuccessfulbuild".
+          Mise ├á jour de l'horodatage "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\cmTC_d30fc.lastbuildstate".
+        G├®n├®ration du projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\cmTC_d30fc.vcxproj" termin├®e (cibles par d├®faut).
         
         La g├®n├®ration a r├®ussi.
             0 Avertissement(s)
             0 Erreur(s)
         
-        Temps ├®coul├® 00:00:00.44
+        Temps ├®coul├® 00:00:00.41
         
       exitCode: 0
   -
@@ -2854,665 +2872,11 @@ events:
       Microsoft (R) Incremental Linker Version 14.44.35219.0
       Copyright (C) Microsoft Corporation.  All rights reserved.
   -
-    kind: "try_compile-v1"
-    backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake:103 (cmake_check_source_compiles)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:99 (check_cxx_source_compiles)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:163 (_threads_check_libc)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
-      - "C:/Users/assam/vcpkg/installed/x64-windows/share/openexr/OpenEXRConfig.cmake:35 (find_dependency)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:3 (find_package)"
-    checks:
-      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
-    directories:
-      source: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-g74156"
-      binary: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-g74156"
-    cmakeVariables:
-      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
-      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
-      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
-      VCPKG_INSTALLED_DIR: "C:/Users/assam/vcpkg/installed"
-      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
-      VCPKG_TARGET_TRIPLET: "x64-windows"
-      Z_VCPKG_ROOT_DIR: "C:/Users/assam/vcpkg"
-    buildResult:
-      variable: "CMAKE_HAVE_LIBC_PTHREAD"
-      cached: true
-      stdout: |
-        Change Dir: 'D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-g74156'
-        
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bf15f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
-        Version MSBuild 17.14.23+b0019275e pour .NET Framework
-        La g├®n├®ration a d├®marr├® 26/10/2025 15:23:01.
-        
-        Projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\cmTC_bf15f.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
-        PrepareForBuild:
-          Cr├®ation du r├®pertoire "cmTC_bf15f.dir\\Debug\\".
-          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Cr├®ation du r├®pertoire "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\Debug\\".
-          Cr├®ation du r├®pertoire "cmTC_bf15f.dir\\Debug\\cmTC_bf15f.tlog\\".
-        InitializeBuildStatus:
-          Cr├®ation de "cmTC_bf15f.dir\\Debug\\cmTC_bf15f.tlog\\unsuccessfulbuild", car "AlwaysCreate" a ├®t├® sp├®cifi├®.
-          Mise ├á jour de l'horodatage "cmTC_bf15f.dir\\Debug\\cmTC_bf15f.tlog\\unsuccessfulbuild".
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_bf15f.dir\\Debug\\\\" /Fd"cmTC_bf15f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\src.cxx"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35219 for x64
-          Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_bf15f.dir\\Debug\\\\" /Fd"cmTC_bf15f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\src.cxx"
-          src.cxx
-        D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\src.cxx(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\cmTC_bf15f.vcxproj]
-        G├®n├®ration du projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\cmTC_bf15f.vcxproj" termin├®e (cibles par d├®faut) -- ├ëCHEC.
-        
-        ├ëCHEC de la build.
-        
-        "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\cmTC_bf15f.vcxproj" (cible par d├®faut) (1) ->
-        (ClCompile cible) -> 
-          D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\src.cxx(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-g74156\\cmTC_bf15f.vcxproj]
-        
-            0 Avertissement(s)
-            1 Erreur(s)
-        
-        Temps ├®coul├® 00:00:00.29
-        
-      exitCode: 1
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake:154 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:112 (check_library_exists)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:175 (_threads_check_lib)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
-      - "C:/Users/assam/vcpkg/installed/x64-windows/share/openexr/OpenEXRConfig.cmake:35 (find_dependency)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:3 (find_package)"
-    checks:
-      - "Looking for pthread_create in pthreads"
-    directories:
-      source: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-yk5y5m"
-      binary: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-yk5y5m"
-    cmakeVariables:
-      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
-      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
-      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
-      VCPKG_INSTALLED_DIR: "C:/Users/assam/vcpkg/installed"
-      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
-      VCPKG_TARGET_TRIPLET: "x64-windows"
-      Z_VCPKG_ROOT_DIR: "C:/Users/assam/vcpkg"
-    buildResult:
-      variable: "CMAKE_HAVE_PTHREADS_CREATE"
-      cached: true
-      stdout: |
-        Change Dir: 'D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-yk5y5m'
-        
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_5eec7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
-        Version MSBuild 17.14.23+b0019275e pour .NET Framework
-        La g├®n├®ration a d├®marr├® 26/10/2025 15:23:02.
-        
-        Projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\cmTC_5eec7.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
-        PrepareForBuild:
-          Cr├®ation du r├®pertoire "cmTC_5eec7.dir\\Debug\\".
-          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Cr├®ation du r├®pertoire "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\Debug\\".
-          Cr├®ation du r├®pertoire "cmTC_5eec7.dir\\Debug\\cmTC_5eec7.tlog\\".
-        InitializeBuildStatus:
-          Cr├®ation de "cmTC_5eec7.dir\\Debug\\cmTC_5eec7.tlog\\unsuccessfulbuild", car "AlwaysCreate" a ├®t├® sp├®cifi├®.
-          Mise ├á jour de l'horodatage "cmTC_5eec7.dir\\Debug\\cmTC_5eec7.tlog\\unsuccessfulbuild".
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_5eec7.dir\\Debug\\\\" /Fd"cmTC_5eec7.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\CheckFunctionExists.cxx"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35219 for x64
-          Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_5eec7.dir\\Debug\\\\" /Fd"cmTC_5eec7.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\CheckFunctionExists.cxx"
-          CheckFunctionExists.cxx
-        Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\Debug\\cmTC_5eec7.exe" /INCREMENTAL /ILK:"cmTC_5eec7.dir\\Debug\\cmTC_5eec7.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-yk5y5m/Debug/cmTC_5eec7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-yk5y5m/Debug/cmTC_5eec7.lib" /MACHINE:X64  /machine:x64 cmTC_5eec7.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\cmTC_5eec7.vcxproj]
-        G├®n├®ration du projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\cmTC_5eec7.vcxproj" termin├®e (cibles par d├®faut) -- ├ëCHEC.
-        
-        ├ëCHEC de la build.
-        
-        "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\cmTC_5eec7.vcxproj" (cible par d├®faut) (1) ->
-        (Link cible) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yk5y5m\\cmTC_5eec7.vcxproj]
-        
-            0 Avertissement(s)
-            1 Erreur(s)
-        
-        Temps ├®coul├® 00:00:00.33
-        
-      exitCode: 1
-  -
-    kind: "try_compile-v1"
-    backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CheckLibraryExists.cmake:154 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:112 (check_library_exists)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/FindThreads.cmake:176 (_threads_check_lib)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
-      - "C:/Users/assam/vcpkg/installed/x64-windows/share/openexr/OpenEXRConfig.cmake:35 (find_dependency)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:3 (find_package)"
-    checks:
-      - "Looking for pthread_create in pthread"
-    directories:
-      source: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-8nds76"
-      binary: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-8nds76"
-    cmakeVariables:
-      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
-      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
-      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
-      VCPKG_INSTALLED_DIR: "C:/Users/assam/vcpkg/installed"
-      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
-      VCPKG_TARGET_TRIPLET: "x64-windows"
-      Z_VCPKG_ROOT_DIR: "C:/Users/assam/vcpkg"
-    buildResult:
-      variable: "CMAKE_HAVE_PTHREAD_CREATE"
-      cached: true
-      stdout: |
-        Change Dir: 'D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-8nds76'
-        
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7bc49.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
-        Version MSBuild 17.14.23+b0019275e pour .NET Framework
-        La g├®n├®ration a d├®marr├® 26/10/2025 15:23:03.
-        
-        Projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\cmTC_7bc49.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
-        PrepareForBuild:
-          Cr├®ation du r├®pertoire "cmTC_7bc49.dir\\Debug\\".
-          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Cr├®ation du r├®pertoire "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\Debug\\".
-          Cr├®ation du r├®pertoire "cmTC_7bc49.dir\\Debug\\cmTC_7bc49.tlog\\".
-        InitializeBuildStatus:
-          Cr├®ation de "cmTC_7bc49.dir\\Debug\\cmTC_7bc49.tlog\\unsuccessfulbuild", car "AlwaysCreate" a ├®t├® sp├®cifi├®.
-          Mise ├á jour de l'horodatage "cmTC_7bc49.dir\\Debug\\cmTC_7bc49.tlog\\unsuccessfulbuild".
-        ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_7bc49.dir\\Debug\\\\" /Fd"cmTC_7bc49.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\CheckFunctionExists.cxx"
-          Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35219 for x64
-          Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_7bc49.dir\\Debug\\\\" /Fd"cmTC_7bc49.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\CheckFunctionExists.cxx"
-          CheckFunctionExists.cxx
-        Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\Debug\\cmTC_7bc49.exe" /INCREMENTAL /ILK:"cmTC_7bc49.dir\\Debug\\cmTC_7bc49.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-8nds76/Debug/cmTC_7bc49.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-8nds76/Debug/cmTC_7bc49.lib" /MACHINE:X64  /machine:x64 cmTC_7bc49.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\cmTC_7bc49.vcxproj]
-        G├®n├®ration du projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\cmTC_7bc49.vcxproj" termin├®e (cibles par d├®faut) -- ├ëCHEC.
-        
-        ├ëCHEC de la build.
-        
-        "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\cmTC_7bc49.vcxproj" (cible par d├®faut) (1) ->
-        (Link cible) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nds76\\cmTC_7bc49.vcxproj]
-        
-            0 Avertissement(s)
-            1 Erreur(s)
-        
-        Temps ├®coul├® 00:00:00.35
-        
-      exitCode: 1
-  -
-    kind: "find_package-v1"
-    backtrace:
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
-      - "C:/Users/assam/vcpkg/installed/x64-windows/share/openexr/OpenEXRConfig.cmake:39 (find_dependency)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:3 (find_package)"
-    name: "Imath"
-    configs:
-      -
-        filename: "ImathConfig.cmake"
-        kind: "cmake"
-      -
-        filename: "imath-config.cmake"
-        kind: "cmake"
-    version_request:
-      exact: false
-    settings:
-      required: "required_explicit"
-      quiet: false
-      global: false
-      policy_scope: true
-      bypass_provider: false
-      names:
-        - "Imath"
-      path_suffixes:
-        - ""
-      paths:
-        CMAKE_FIND_USE_CMAKE_PATH: true
-        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-        CMAKE_FIND_USE_INSTALL_PREFIX: true
-        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
-        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
-        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
-        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
-    candidates:
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/ImathConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/imath-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/ImathConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/imath-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/ImathConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/imath-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-    found:
-      path: "C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathConfig.cmake"
-      mode: "config"
-      version: "3.2.2"
-    search_context:
-      CMAKE_PREFIX_PATH:
-        - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
-        - "C:/Users/assam/vcpkg/installed/x64-windows"
-      ENV{PATH}:
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
-        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
-        - "C:\\Windows\\system32"
-        - "C:\\Windows"
-        - "C:\\Windows\\System32\\Wbem"
-        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\Windows\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\HONOR\\PCManager"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
-        - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/SSRT"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "C:/Program Files"
-        - "C:/Program Files (x86)"
-        - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/SSRT"
-      CMAKE_FIND_ROOT_PATH: "C:/Users/assam/vcpkg/installed/x64-windows/debug;C:/Users/assam/vcpkg/installed/x64-windows"
-  -
-    kind: "find_package-v1"
-    backtrace:
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
-      - "C:/Users/assam/vcpkg/installed/x64-windows/share/openexr/OpenEXRConfig.cmake:42 (find_dependency)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:3 (find_package)"
-    name: "libdeflate"
-    configs:
-      -
-        filename: "libdeflateConfig.cmake"
-        kind: "cmake"
-      -
-        filename: "libdeflate-config.cmake"
-        kind: "cmake"
-    version_request:
-      exact: false
-    settings:
-      required: "required_explicit"
-      quiet: false
-      global: false
-      policy_scope: true
-      bypass_provider: false
-      names:
-        - "libdeflate"
-      path_suffixes:
-        - ""
-      paths:
-        CMAKE_FIND_USE_CMAKE_PATH: true
-        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-        CMAKE_FIND_USE_INSTALL_PREFIX: true
-        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
-        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
-        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
-        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
-    candidates:
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/libdeflateConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/libdeflate-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/libdeflateConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/libdeflate-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/libdeflateConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/libdeflate-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/share/libdeflate/libdeflateConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-    found:
-      path: "C:/Users/assam/vcpkg/installed/x64-windows/share/libdeflate/libdeflate-config.cmake"
-      mode: "config"
-      version: "1.24"
-    search_context:
-      CMAKE_PREFIX_PATH:
-        - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
-        - "C:/Users/assam/vcpkg/installed/x64-windows"
-      ENV{PATH}:
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
-        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
-        - "C:\\Windows\\system32"
-        - "C:\\Windows"
-        - "C:\\Windows\\System32\\Wbem"
-        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\Windows\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\HONOR\\PCManager"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
-        - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/SSRT"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "C:/Program Files"
-        - "C:/Program Files (x86)"
-        - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/SSRT"
-      CMAKE_FIND_ROOT_PATH: "C:/Users/assam/vcpkg/installed/x64-windows/debug;C:/Users/assam/vcpkg/installed/x64-windows"
-  -
-    kind: "find_package-v1"
-    backtrace:
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
-      - "C:/Users/assam/vcpkg/installed/x64-windows/share/openexr/OpenEXRConfig.cmake:46 (find_dependency)"
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:3 (find_package)"
-    name: "openjph"
-    configs:
-      -
-        filename: "openjphConfig.cmake"
-        kind: "cmake"
-      -
-        filename: "openjph-config.cmake"
-        kind: "cmake"
-    version_request:
-      exact: false
-    settings:
-      required: "required_explicit"
-      quiet: false
-      global: false
-      policy_scope: true
-      bypass_provider: false
-      names:
-        - "openjph"
-      path_suffixes:
-        - ""
-      paths:
-        CMAKE_FIND_USE_CMAKE_PATH: true
-        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-        CMAKE_FIND_USE_INSTALL_PREFIX: true
-        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
-        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
-        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
-        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
-    candidates:
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/openjphConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/openjph-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/openjphConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/openjph-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/openjphConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/openjph-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/share/openjph/openjphConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-    found:
-      path: "C:/Users/assam/vcpkg/installed/x64-windows/share/openjph/openjph-config.cmake"
-      mode: "config"
-      version: "0.24.2"
-    search_context:
-      CMAKE_PREFIX_PATH:
-        - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
-        - "C:/Users/assam/vcpkg/installed/x64-windows"
-      ENV{PATH}:
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
-        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
-        - "C:\\Windows\\system32"
-        - "C:\\Windows"
-        - "C:\\Windows\\System32\\Wbem"
-        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\Windows\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\HONOR\\PCManager"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
-        - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/SSRT"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "C:/Program Files"
-        - "C:/Program Files (x86)"
-        - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/SSRT"
-      CMAKE_FIND_ROOT_PATH: "C:/Users/assam/vcpkg/installed/x64-windows/debug;C:/Users/assam/vcpkg/installed/x64-windows"
-  -
-    kind: "find_package-v1"
-    backtrace:
-      - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:3 (find_package)"
-    name: "OpenEXR"
-    configs:
-      -
-        filename: "OpenEXRConfig.cmake"
-        kind: "cmake"
-      -
-        filename: "openexr-config.cmake"
-        kind: "cmake"
-    version_request:
-      exact: false
-    settings:
-      required: "required_explicit"
-      quiet: false
-      global: false
-      policy_scope: true
-      bypass_provider: false
-      names:
-        - "OpenEXR"
-      path_suffixes:
-        - ""
-      paths:
-        CMAKE_FIND_USE_CMAKE_PATH: true
-        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-        CMAKE_FIND_USE_INSTALL_PREFIX: true
-        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
-        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
-        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
-        CMAKE_FIND_ROOT_PATH_MODE: "BOTH"
-    candidates:
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/OpenEXRConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/openexr-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/OpenEXRConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/debug/openexr-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/OpenEXRConfig.cmake"
-        mode: "config"
-        reason: "no_exist"
-      -
-        path: "C:/Users/assam/vcpkg/installed/x64-windows/openexr-config.cmake"
-        mode: "config"
-        reason: "no_exist"
-    found:
-      path: "C:/Users/assam/vcpkg/installed/x64-windows/share/openexr/OpenEXRConfig.cmake"
-      mode: "config"
-      version: "3.4.2"
-    search_context:
-      CMAKE_PREFIX_PATH:
-        - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
-        - "C:/Users/assam/vcpkg/installed/x64-windows"
-      ENV{PATH}:
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX86\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\VCPackages"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\bin\\Roslyn"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Team Tools\\DiagnosticsHub\\Collector"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\\\x86"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\\\x86"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\\\MSBuild\\Current\\Bin\\amd64"
-        - "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\"
-        - "C:\\Windows\\system32"
-        - "C:\\Windows"
-        - "C:\\Windows\\System32\\Wbem"
-        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
-        - "C:\\Windows\\System32\\OpenSSH\\"
-        - "C:\\Program Files\\HONOR\\PCManager"
-        - "C:\\Program Files\\dotnet\\"
-        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\VirtualFile64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\FileProtector64\\"
-        - "C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\"
-        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
-        - "C:\\Program Files\\Git\\cmd"
-        - "C:\\Program Files\\CMake\\bin"
-        - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
-        - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
-        - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/SSRT"
-      CMAKE_SYSTEM_PREFIX_PATH:
-        - "C:/Program Files"
-        - "C:/Program Files (x86)"
-        - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/SSRT"
-      CMAKE_FIND_ROOT_PATH: "C:/Users/assam/vcpkg/installed/x64-windows/debug;C:/Users/assam/vcpkg/installed/x64-windows"
-  -
     kind: "find-v1"
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:188 (find_program)"
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:617 (z_vcpkg_set_powershell_path)"
-      - "CMakeLists.txt:9 (add_executable)"
+      - "CMakeLists.txt:7 (add_executable)"
     mode: "program"
     variable: "Z_VCPKG_PWSH_PATH"
     description: "Path to a program."
@@ -3534,6 +2898,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -3587,6 +2952,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -3640,6 +3006,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -3708,6 +3075,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/pwsh"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh"
@@ -3867,6 +3237,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/pwsh"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh"
@@ -4026,6 +3399,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/pwsh"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/pwsh"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh.com"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh.exe"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/pwsh"
@@ -4168,6 +3544,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -4218,7 +3595,7 @@ events:
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:193 (find_program)"
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:617 (z_vcpkg_set_powershell_path)"
-      - "CMakeLists.txt:9 (add_executable)"
+      - "CMakeLists.txt:7 (add_executable)"
     mode: "program"
     variable: "Z_VCPKG_BUILTIN_POWERSHELL_PATH"
     description: "Path to a program."
@@ -4240,6 +3617,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -4293,6 +3671,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -4346,6 +3725,7 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/sbin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/VC/vcpackages/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/TestWindow/"
@@ -4414,6 +3794,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/powershell"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell"
@@ -4573,6 +3956,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/powershell"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell"
@@ -4732,6 +4118,9 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/tools/powershell"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2/powershell"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell.com"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell.exe"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/powershell"
@@ -4782,6 +4171,7 @@ events:
     search_context:
       CMAKE_PROGRAM_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/tools"
+        - "C:/Users/assam/vcpkg/installed/x64-windows/tools/bzip2"
       CMAKE_PREFIX_PATH:
         - "C:/Users/assam/vcpkg/installed/x64-windows/debug"
         - "C:/Users/assam/vcpkg/installed/x64-windows"
@@ -4827,10 +4217,6 @@ events:
         - "C:/Program Files/CMake"
         - "C:/Program Files (x86)/SSRT"
       CMAKE_FIND_ROOT_PATH: "C:/Users/assam/vcpkg/installed/x64-windows/debug;C:/Users/assam/vcpkg/installed/x64-windows"
-...
-
----
-events:
   -
     kind: "find_package-v1"
     backtrace:
@@ -4838,7 +4224,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
       - "C:/Users/assam/vcpkg/installed/x64-windows/share/tinyexr/tinyexrConfig.cmake:28 (find_dependency)"
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:10 (find_package)"
+      - "CMakeLists.txt:9 (find_package)"
     name: "miniz"
     configs:
       -
@@ -4948,7 +4334,7 @@ events:
     kind: "find_package-v1"
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:10 (find_package)"
+      - "CMakeLists.txt:9 (find_package)"
     name: "tinyexr"
     configs:
       -
@@ -5054,15 +4440,11 @@ events:
         - "C:/Program Files/CMake"
         - "C:/Program Files (x86)/SSRT"
       CMAKE_FIND_ROOT_PATH: "C:/Users/assam/vcpkg/installed/x64-windows/debug;C:/Users/assam/vcpkg/installed/x64-windows"
-...
-
----
-events:
   -
     kind: "find_package-v1"
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:13 (find_package)"
+      - "CMakeLists.txt:12 (find_package)"
     name: "OpenColorIO"
     configs:
       -

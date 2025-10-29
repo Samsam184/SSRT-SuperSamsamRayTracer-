@@ -10,7 +10,7 @@
 #include <fstream>
 #include <algorithm>
 #include "quad.h"
-//#include "tryOCIO.h"
+#include "constant_medium.h"
 
 void static_spheres() {
     
@@ -229,18 +229,20 @@ void simple_lights() {
     is_colorSpace_gamma = true;
 }
 
-
 void cornell_box() {
 
     // testOCIO();
 
         hittable_list world;
 
+        //Materials Lists
         auto red = make_shared<lambertian>(color(.65, .05, .05));
         auto white = make_shared<lambertian>(color(.73, .73, .73));
         auto green = make_shared<lambertian>(color(.12, .45, .15));
         auto light = make_shared<diffuse_light>(color(15, 15, 15));
 
+
+        //Cornell Box
         world.add(make_shared<quad>(point3(555, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), green));
         world.add(make_shared<quad>(point3(0, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), red));
         world.add(make_shared<quad>(point3(343, 554, 332), vec3(-130, 0, 0), vec3(0, 0, -105), light));
@@ -248,18 +250,23 @@ void cornell_box() {
         world.add(make_shared<quad>(point3(555, 555, 555), vec3(-555, 0, 0), vec3(0, 0, -555), white));
         world.add(make_shared<quad>(point3(0, 0, 555), vec3(555, 0, 0), vec3(0, 555, 0), white));
 
+        //Box 1
         shared_ptr<hittable> box1 = box(point3(0, 0, 0), point3(165, 330, 165), white);
         box1 = make_shared<rotate_y>(box1, 25);
         box1 = make_shared<translate>(box1, vec3(265, 0, 295));
         world.add(box1);
 
+        //Box 2
         shared_ptr<hittable> box2 = box(point3(0, 0, 0), point3(165, 165, 165), white);
         box2 = make_shared<rotate_y>(box2, -18);
         box2 = make_shared<translate>(box2, vec3(130, 0, 65));
         world.add(box2);
 
+        //BVH Optimisation settings
         world = hittable_list(make_shared<bvh_node>(world));
 
+
+        //Camera and Rendering
         camera cam;
 
         cam.aspect_ratio = 1.0;
@@ -281,11 +288,145 @@ void cornell_box() {
     
 }
 
+void smoke_cornell_box() {
 
+    // testOCIO();
+
+    hittable_list world;
+
+    //Materials Lists
+    auto red = make_shared<lambertian>(color(.65, .05, .05));
+    auto white = make_shared<lambertian>(color(.73, .73, .73));
+    auto green = make_shared<lambertian>(color(.12, .45, .15));
+    auto light = make_shared<diffuse_light>(color(15, 15, 15));
+
+
+    //Cornell Box
+    world.add(make_shared<quad>(point3(555, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), green));
+    world.add(make_shared<quad>(point3(0, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), red));
+    world.add(make_shared<quad>(point3(113, 554, 127), vec3(330, 0, 0), vec3(0, 0, 305), light));
+    world.add(make_shared<quad>(point3(0, 0, 0), vec3(555, 0, 0), vec3(0, 0, 555), white));
+    world.add(make_shared<quad>(point3(555, 555, 555), vec3(-555, 0, 0), vec3(0, 0, -555), white));
+    world.add(make_shared<quad>(point3(0, 0, 555), vec3(555, 0, 0), vec3(0, 555, 0), white));
+
+    //Box 1
+    shared_ptr<hittable> box1 = box(point3(0, 0, 0), point3(165, 330, 165), white);
+    box1 = make_shared<rotate_y>(box1, 25);
+    box1 = make_shared<translate>(box1, vec3(265, 0, 295));
+    //Add Box 1 entant que smoke
+    world.add(make_shared<constant_medium>(box1, 0.01, color(0, 0, 0)));
+
+    //Box 2
+    shared_ptr<hittable> box2 = box(point3(0, 0, 0), point3(165, 165, 165), white);
+    box2 = make_shared<rotate_y>(box2, -18);
+    box2 = make_shared<translate>(box2, vec3(130, 0, 65));
+    //Add Box 2 entant que smoke
+    world.add(make_shared<constant_medium>(box2, 0.01, color(1, 1, 1)));
+
+
+    
+    
+
+    //BVH Optimisation settings
+    world = hittable_list(make_shared<bvh_node>(world));
+
+
+    //Camera and Rendering
+    camera cam;
+
+    cam.aspect_ratio = 1.0;
+    cam.image_width = 1280;
+    cam.samples_per_pixel = 40;
+    cam.max_depth = 50;
+    cam.background = color(0, 0, 0);
+
+    cam.vfov = 40;
+    cam.lookfrom = point3(278, 278, -800);
+    cam.lookat = point3(278, 278, 0);
+    cam.vup = vec3(0, 1, 0);
+
+    cam.defocus_angle = 0;
+
+    cam.render(world);
+
+    is_colorSpace_gamma = true;
+
+}
+
+void all_feature_cornell_box() {
+
+    // testOCIO();
+
+    hittable_list world;
+
+    //Materials Lists
+    auto red = make_shared<lambertian>(color(.65, .05, .05));
+    auto white = make_shared<lambertian>(color(.73, .73, .73));
+    auto green = make_shared<lambertian>(color(.12, .45, .15));
+    auto metallic_blue = make_shared<metal>(color(0,.2,1), .1);
+    auto glass = make_shared<dielectric>(1.33);
+    auto light = make_shared<diffuse_light>(color(5, 5, 5));
+
+
+    //Cornell Box
+    world.add(make_shared<quad>(point3(555, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), green));
+    world.add(make_shared<quad>(point3(0, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), red));
+    world.add(make_shared<quad>(point3(113, 554, 127), vec3(330, 0, 0), vec3(0, 0, 305), light));
+    world.add(make_shared<quad>(point3(0, 0, 0), vec3(555, 0, 0), vec3(0, 0, 555), white));
+    world.add(make_shared<quad>(point3(555, 555, 555), vec3(-555, 0, 0), vec3(0, 0, -555), white));
+    world.add(make_shared<quad>(point3(0, 0, 555), vec3(555, 0, 0), vec3(0, 555, 0), white));
+
+    //Box 1
+    shared_ptr<hittable> box1 = box(point3(0, 0, 0), point3(165, 330, 165), white);
+    box1 = make_shared<rotate_y>(box1, 25);
+    box1 = make_shared<translate>(box1, vec3(265, 0, 295));
+    world.add(make_shared<constant_medium>(box1,.03, color(0, .05, 1)));
+
+    //Box 2
+    shared_ptr<hittable> box2 = box(point3(0, 0, 0), point3(165, 165, 165), white);
+    box2 = make_shared<rotate_y>(box2, -18);
+    box2 = make_shared<translate>(box2, vec3(130, 0, 65));
+    world.add(box2);
+
+    //Volume Env
+    shared_ptr<hittable> boxVolumeEnv = box(point3(0, 0, 0), point3(555, 555, 555), white);
+    boxVolumeEnv = make_shared<translate>(boxVolumeEnv, vec3(0, 0, 0));
+    world.add(make_shared<constant_medium>(boxVolumeEnv, .001, color(1, 1, 1)));
+
+    world.add(make_shared<sphere>(point3(190, 380, 220), 100, glass));
+    world.add(make_shared<sphere>(point3(400, 100, 120), 85, metallic_blue));
+
+    //BVH Optimisation settings
+    world = hittable_list(make_shared<bvh_node>(world));
+
+
+    //Camera and Rendering
+    camera cam;
+
+    cam.aspect_ratio = 1.0;
+    cam.image_width = 3840;
+    cam.samples_per_pixel = 5;
+    cam.max_depth = 50;
+    cam.background = color(0, 0, 0);
+
+    cam.vfov = 40;
+    cam.lookfrom = point3(278, 278, -800);
+    cam.lookat = point3(278, 278, 0);
+    cam.vup = vec3(0, 1, 0);
+
+    cam.defocus_angle = 0;
+
+    cam.use_denoiser = true;
+    
+    cam.render(world);
+
+    is_colorSpace_gamma = true;
+
+}
 
 int main() {
     
-    switch (7) {
+    switch (9) {
     case 1: static_spheres(); break;
     case 2: checkered_spheres(); break;
     case 3: earth(); break;
@@ -293,6 +434,8 @@ int main() {
     case 5: quads(); break;
     case 6: simple_lights(); break;
     case 7: cornell_box(); break;
+    case 8: smoke_cornell_box(); break;
+    case 9: all_feature_cornell_box(); break;
     }
     
 }

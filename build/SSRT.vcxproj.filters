@@ -15,10 +15,13 @@
     <ClInclude Include="D:\SSRT\quad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\SSRT\tryOCIO.h">
+    <ClInclude Include="D:\SSRT\image_io.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\SSRT\image_io.h">
+    <ClInclude Include="D:\SSRT\constant_medium.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\OIDN.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

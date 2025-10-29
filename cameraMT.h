@@ -12,10 +12,12 @@
 #include <random>
 #include <mutex>
 #include "image_io.h"
+#include "OIDN.h"
 
 class camera {
 public: 
     //variables
+    bool use_denoiser = true;
     double aspect_ratio = 16.0/9.0;
     int image_width = 100;
     int samples_per_pixel = 10;
@@ -109,8 +111,19 @@ public:
         //{
         //    write_exr("image_linear_ACEScg.exr", framebuffer, image_width, image_height);
         //}
+        /*
+       
+        */
+        
+        if (use_denoiser) {
 
-        save_image("renders/SSRT_nonLinear.png", framebuffer, image_width, image_height);
+            std::clog << "\n[OIDN] Denoising in progress.. Please wait.\n";
+            denoise_with_oidn(framebuffer, image_width, image_height);
+            save_image("renders/SSRT_Linear.exr", framebuffer, image_width, image_height);
+        }
+        else {
+            save_image("renders/SSRT_Linear.exr", framebuffer, image_width, image_height);
+        }
         
         std::clog << "\nRender Ended Correctly!! \n\n";
     }

@@ -88,12 +88,12 @@ bool write_exr(const std::string& filename, const std::vector<color>& framebuffe
     free(header.requested_pixel_types);
 
     if (ret != TINYEXR_SUCCESS) {
-        std::cerr << "Failed to save EXR: " << err << std::endl;
+        std::cerr << "\nFailed to save EXR: " << err << std::endl;
         FreeEXRErrorMessage(err);
         return false;
     }
 
-    std::cout << "Saved Linear EXR: " << filename << std::endl;
+    std::cout << "\nSaved Linear EXR: " << filename << std::endl;
     return true;
 }
 
