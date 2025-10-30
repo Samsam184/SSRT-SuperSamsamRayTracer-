@@ -391,7 +391,7 @@ void all_feature_cornell_box() {
     //Volume Env
     shared_ptr<hittable> boxVolumeEnv = box(point3(0, 0, 0), point3(555, 555, 555), white);
     boxVolumeEnv = make_shared<translate>(boxVolumeEnv, vec3(0, 0, 0));
-    world.add(make_shared<constant_medium>(boxVolumeEnv, .001, color(1, 1, 1)));
+    world.add(make_shared<constant_medium>(boxVolumeEnv, 0, color(1, 1, 1)));
 
     world.add(make_shared<sphere>(point3(190, 380, 220), 100, glass));
     world.add(make_shared<sphere>(point3(400, 100, 120), 85, metallic_blue));
@@ -403,13 +403,19 @@ void all_feature_cornell_box() {
     //Camera and Rendering
     camera cam;
 
-    cam.aspect_ratio = 1.0;
-    cam.image_width = 3840;
+
+    std::cout << "entrez la hauteur de l'image svp : ";
+    std::cin >> cam.image_width;
+    std::cout << "entrez le ratio d'aspect de votre image (ex: 1.77, 1.33, 2.35) : ";
+    std::cin >> cam.aspect_ratio;
+    std::cout << "entrez le field of view (en degrés) : ";
+    std::cin >> cam.vfov;
+    
+    
     cam.samples_per_pixel = 5;
     cam.max_depth = 50;
     cam.background = color(0, 0, 0);
 
-    cam.vfov = 40;
     cam.lookfrom = point3(278, 278, -800);
     cam.lookat = point3(278, 278, 0);
     cam.vup = vec3(0, 1, 0);

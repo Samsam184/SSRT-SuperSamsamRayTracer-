@@ -57,9 +57,13 @@ public:
         //out << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
         std::vector<color> framebuffer(image_width * image_height);
+        std::vector<color> albedobuffer(image_width * image_height);
+        std::vector<color> normalbuffer(image_width * image_height);
 
         std::atomic<int> next_row{ 0 };
         std::mutex cout_mutex;
+
+        
 
         auto worker = [&](int thread_id) {
             std::mt19937 rng(std::random_device{}() + thread_id);
@@ -70,13 +74,32 @@ public:
                 if (j >= image_height) break;
 
                 for (int i = 0; i < image_width; i++) {
+
                     color pixel_color(0, 0, 0);
+                    vec3 pixel_albedo(0, 0, 0);
+                    vec3 pixel_normal(0, 0, 0);
+
                     for (int sample = 0; sample < samples_per_pixel; sample++) {
                         ray r = get_ray(i, j);
-                        pixel_color += ray_color(r, max_depth, world);
+                        
+                        vec3 alb(0,0,0), nrm(0,0,0);
+                        color sample_color = ray_color(r, max_depth, world, alb, nrm);
+                        
+                        pixel_color += sample_color;
+                        pixel_albedo += alb;
+                        pixel_normal += nrm;
                     }
+                    
+                    pixel_color *= pixel_samples_scale;
+                    pixel_albedo *= pixel_samples_scale;
+                    pixel_normal = unit_vector(pixel_normal);
+                    
                     framebuffer[j * image_width + i] = pixel_color * pixel_samples_scale;
-                }
+                    albedobuffer[j * image_width + i] = pixel_albedo;
+                    normalbuffer[j * image_width + i] = pixel_normal;
+                
+                }   
+                    
 
                 if (j % 10 == 0) {
                     std::lock_guard<std::mutex> lk(cout_mutex);
@@ -118,11 +141,11 @@ public:
         if (use_denoiser) {
 
             std::clog << "\n[OIDN] Denoising in progress.. Please wait.\n";
-            denoise_with_oidn(framebuffer, image_width, image_height);
-            save_image("renders/SSRT_Linear.exr", framebuffer, image_width, image_height);
+            denoise_with_oidn(framebuffer, albedobuffer, normalbuffer, image_width, image_height);
+            save_image("renders/SSRT_Linear_v001_denoised.exr", framebuffer, image_width, image_height);
         }
         else {
-            save_image("renders/SSRT_Linear.exr", framebuffer, image_width, image_height);
+            save_image("renders/SSRT_Linear_v001_denoised.exr", framebuffer, image_width, image_height);
         }
         
         std::clog << "\nRender Ended Correctly!! \n\n";
@@ -198,7 +221,7 @@ private:
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
-	color ray_color(const ray& r, int depth,  const hittable& world) const {
+	color ray_color(const ray& r, int depth,  const hittable& world, vec3& out_albedo, vec3& out_normal) const {
 		
         if (depth <= 0) {
             return color(0, 0, 0);
@@ -207,8 +230,21 @@ private:
         hit_record rec;
 		
         
-        if (!world.hit(r, interval(0.001, infinity), rec))
+        if (!world.hit(r, interval(0.001, infinity), rec)) {
+            out_albedo = vec3(0, 0, 0);
+            out_normal = vec3(0, 0, 0);
             return background;
+        }
+
+        out_normal = unit_vector(rec.normal);
+
+        if (auto lambert = dynamic_cast<const lambertian*>(rec.mat.get())) {
+            out_albedo = lambert->tex->value(rec.u, rec.v, rec.p);
+        }
+        else {
+            out_albedo = vec3(.5, .5, .5);
+        }
+        
 
         ray scattered;
         color attenuation;
@@ -217,7 +253,7 @@ private:
         if (!rec.mat->scatter(r, rec, attenuation, scattered))
             return color_from_emission;
 
-        color color_from_scatter = attenuation * ray_color(scattered, depth - 1, world);
+        color color_from_scatter = attenuation * ray_color(scattered, depth - 1, world, out_albedo, out_normal);
 
         return color_from_emission + color_from_scatter;
 

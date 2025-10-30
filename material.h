@@ -17,10 +17,14 @@ public:
 		return color(0, 0, 0);
 	}
 
+
 };
 
 class lambertian : public material {
 public: 
+
+	shared_ptr<texture> tex;
+
 	lambertian(const color& albedo) : tex(make_shared<solid_color>(albedo)) {}
 	lambertian(shared_ptr<texture> tex) : tex(tex) {}
 
@@ -33,9 +37,9 @@ public:
 		attenuation = tex->value(rec.u, rec.v, rec.p);
 		return true;
 	}
+
 private: 
 	color albedo;
-	shared_ptr<texture> tex;
 };
 
 class metal : public material {
@@ -49,6 +53,7 @@ public:
 		attenuation = albedo;
 		return (dot(scattered.direction(), rec.normal) > 0);
 	}
+
 private: 
 	color albedo;
 	double fuzz;
@@ -79,6 +84,7 @@ public:
 		scattered = ray(rec.p, direction, r_in.time());
 		return true;
 	}
+
 
 private: 
 	double refraction_index;
@@ -117,5 +123,6 @@ public:
 private: 
 	shared_ptr<texture> tex;
 };
+
 
 #endif 
