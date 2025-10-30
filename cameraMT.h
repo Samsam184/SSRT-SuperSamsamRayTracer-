@@ -13,6 +13,7 @@
 #include <mutex>
 #include "image_io.h"
 #include "OIDN.h"
+#include <chrono>
 
 class camera {
 public: 
@@ -50,8 +51,10 @@ public:
 
     void render(const hittable& world) {
 
+        auto t_start = std::chrono::high_resolution_clock::now();
 
         initialize();
+
 
         //std::ofstream out("image.ppm", std::ios::out | std::ios::binary);
         //out << "P3\n" << image_width << ' ' << image_height << "\n255\n";
@@ -140,7 +143,7 @@ public:
         
         if (use_denoiser) {
 
-            std::clog << "\n[OIDN] Denoising in progress.. Please wait.\n";
+            std::clog << "\n\n[OIDN] Denoising in progress.. Please wait.\n";
             denoise_with_oidn(framebuffer, albedobuffer, normalbuffer, image_width, image_height);
             save_image("renders/SSRT_Linear_v001_denoised.exr", framebuffer, image_width, image_height);
         }
@@ -148,6 +151,18 @@ public:
             save_image("renders/SSRT_Linear_v001_denoised.exr", framebuffer, image_width, image_height);
         }
         
+        auto t_end = std::chrono::high_resolution_clock::now();
+        
+        std::chrono::duration<double> total = t_end - t_start;
+        if (total.count() > 60) {
+            total = total / 60;
+            std::clog << "\nTotal render time : " << total.count() << " m\n";
+        }
+        else {
+            std::clog << "\nTotal render time : " << total.count() << " s\n";
+        }
+        
+
         std::clog << "\nRender Ended Correctly!! \n\n";
     }
     
