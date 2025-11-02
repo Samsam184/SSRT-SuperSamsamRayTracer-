@@ -25,7 +25,7 @@ public:
 
 	aabb bounding_box() const override { return bbox; }
 
-	bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
+	inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override {
 		auto denom = dot(normal, r.direction());
 
 		if (std::fabs(denom) < 1e-8) return false;

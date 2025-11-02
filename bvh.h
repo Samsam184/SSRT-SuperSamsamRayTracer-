@@ -45,7 +45,7 @@ public:
 
 	}
 
-	bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
+	inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override {
 		if (!bbox.hit(r, ray_t)) return false;
 
 		bool hit_left = left->hit(r, ray_t, rec);

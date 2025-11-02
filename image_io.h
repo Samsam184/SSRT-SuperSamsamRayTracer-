@@ -115,7 +115,7 @@ inline color ocio_transform_acescg_to_srgb(const color& in_col) {
 
 
 
-inline void save_image(const std::string& filename, std::vector<color>& framebuffer, int width, int height) {
+inline void save_image(const std::string& filename, std::vector<color> framebuffer, int width, int height) {
     if (filename.ends_with(".exr")) {
         write_exr(filename, framebuffer, width, height);
         return;

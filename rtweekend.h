@@ -7,8 +7,9 @@
 #include <random>
 #include <limits>
 #include <memory>
-
-
+#include <thread>
+#include "fast_rng.h"
+#include "external/pcg/pcg_random.hpp"
 // C++ Std Usings
 
 using std::make_shared;
@@ -25,13 +26,25 @@ inline double degrees_to_radians(double degrees) {
     return degrees * pi / 180.0;
 }
 
-inline double random_double() {
+inline double random_double() noexcept {
+    
+    static pcg32 rng(std::random_device{}());
+    std::uniform_real_distribution<double> dist(0.0, 1.0);
+
+    double r = dist(rng);
+    return r;
+    
+    /*
     static std::uniform_real_distribution<double> distribution(0.0, 1.0);
     static std::mt19937 generator;
     return distribution(generator);
+    
+    uint64_t rng_state = 1337u + std::hash<std::thread::id>{}(std::this_thread::get_id());
+    return randf(rng_state);
+    */
 }
 
-inline double random_double(double min, double max) {
+inline float random_double(float min, float max) {
     return min + (max - min) * random_double();
 }
 

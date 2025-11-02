@@ -1,0 +1,2 @@
+Run 1 : 293.185 secondes
+Run 2 : 467.119 secondes

@@ -12,7 +12,7 @@ public:
 
 	constant_medium(shared_ptr<hittable> boundary, double density, const color& albedo) : boundary(boundary), neg_inv_density(-1/density), phase_function(make_shared<isotropic>(albedo)) {}
 
-	bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
+	inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override {
 		hit_record rec1, rec2;
 
 		if (!boundary->hit(r, interval::universe, rec1)) {

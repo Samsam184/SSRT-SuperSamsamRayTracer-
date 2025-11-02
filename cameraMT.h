@@ -1,10 +1,13 @@
-#ifndef CAMERAMT_H
+﻿#ifndef CAMERAMT_H
 #define CAMERAMT_H 
 
 #include "hittable.h"
 #include <ostream>
 #include <fstream>
 #include <algorithm>
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
 #include <Windows.h>
 #include "material.h"
 #include <thread>
@@ -12,13 +15,15 @@
 #include <random>
 #include <mutex>
 #include "image_io.h"
-#include "OIDN.h"
 #include <chrono>
+#include "xoshiro128.h"
+#include "fast_rng.h"
+#include "thread_pool.h"
+#include "morton2D.h"
 
 class camera {
 public: 
     //variables
-    bool use_denoiser = true;
     double aspect_ratio = 16.0/9.0;
     int image_width = 100;
     int samples_per_pixel = 10;
@@ -51,120 +56,110 @@ public:
 
     void render(const hittable& world) {
 
-        auto t_start = std::chrono::high_resolution_clock::now();
+#ifdef _WIN32 
+        DWORD_PTR mask = 0xFF;
+        SetThreadAffinityMask(GetCurrentThread(), mask);
+#endif
+
+        int nthreads = std::thread::hardware_concurrency();
+        if (nthreads == 0) nthreads = 4;
+
+        ThreadPool pool(nthreads);
+        int tileSize = 128; // taille d’une tuile : 32x32 pixels
+
+        //auto t_start = std::chrono::high_resolution_clock::now();
 
         initialize();
-
-
-        //std::ofstream out("image.ppm", std::ios::out | std::ios::binary);
-        //out << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
         std::vector<color> framebuffer(image_width * image_height);
         std::vector<color> albedobuffer(image_width * image_height);
         std::vector<color> normalbuffer(image_width * image_height);
 
-        std::atomic<int> next_row{ 0 };
         std::mutex cout_mutex;
 
-        
+        std::vector<std::pair<uint32_t, std::pair<int, int>>> tiles;
 
-        auto worker = [&](int thread_id) {
-            std::mt19937 rng(std::random_device{}() + thread_id);
-            std::uniform_real_distribution<double> dist(0.0, 1.0);
+        for (int y = 0; y < image_height; y += tileSize) {
+            for (int x = 0; x < image_width; x += tileSize) {
+                uint32_t morton = morton2D(x / tileSize, y / tileSize);
+                tiles.push_back({ morton, {x,y} });
+            }
+        }
 
-            while (true) {
-                int j = next_row.fetch_add(1);
-                if (j >= image_height) break;
+        std::sort(tiles.begin(), tiles.end(), [](auto& a, auto& b) {return a.first < b.first; });
 
-                for (int i = 0; i < image_width; i++) {
+
+        // --- Boucle principale : envoi des tâches au ThreadPool ---
+#pragma omp parallel for schedule(dynamic)
+        for (int tile_idx = 0; tile_idx < (int)tiles.size(); ++tile_idx) {
+            const auto& [code, xy] = tiles[tile_idx];
+            int x = xy.first;
+            int y = xy.second;
+
+            uint64_t rng_state = 1337u + y * image_width + x;
+
+            for (int j = y; j < std::min(y + tileSize, image_height); ++j) {
+                for (int i = x; i < std::min(x + tileSize, image_width); ++i) {
 
                     color pixel_color(0, 0, 0);
                     vec3 pixel_albedo(0, 0, 0);
                     vec3 pixel_normal(0, 0, 0);
+                    const point3 pixel_base = pixel00_location + i * pixel_delta_u + j * pixel_delta_v;
 
+                    // --- Échantillonnage multiple pour AA ---
+#pragma omp simd
                     for (int sample = 0; sample < samples_per_pixel; sample++) {
-                        ray r = get_ray(i, j);
-                        
-                        vec3 alb(0,0,0), nrm(0,0,0);
-                        color sample_color = ray_color(r, max_depth, world, alb, nrm);
-                        
-                        pixel_color += sample_color;
-                        pixel_albedo += alb;
-                        pixel_normal += nrm;
-                    }
-                    
-                    pixel_color *= pixel_samples_scale;
-                    pixel_albedo *= pixel_samples_scale;
-                    pixel_normal = unit_vector(pixel_normal);
-                    
-                    framebuffer[j * image_width + i] = pixel_color * pixel_samples_scale;
-                    albedobuffer[j * image_width + i] = pixel_albedo;
-                    normalbuffer[j * image_width + i] = pixel_normal;
-                
-                }   
-                    
+                        float rx = randf(rng_state);
+                        float ry = randf(rng_state);
 
-                if (j % 10 == 0) {
-                    std::lock_guard<std::mutex> lk(cout_mutex);
-                    std::clog << "\rScanlines remaining: " << (image_height - j) << ' ';
+                        const vec3 pixel_sample =
+                            pixel_base + (rx - 0.5f) * pixel_delta_u + (ry - 0.5f) * pixel_delta_v;
+
+                        const point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
+                        const vec3 ray_direction = pixel_sample - ray_origin;
+
+                        ray r(ray_origin, ray_direction);
+
+                        color sample_color = ray_color(r, max_depth, world);
+
+                        pixel_color += sample_color;
+                    }
+
+                    pixel_color *= pixel_samples_scale;
+
+                    framebuffer[j * image_width + i] = pixel_color;
                 }
             }
-        };
 
-        int nthreads = std::thread::hardware_concurrency();
-        if (nthreads == 0) {
-            nthreads = 4; //ca veux dire fallback PROBLEME FAUT PANIQUER
-        }
-        std::vector<std::thread> threads;
-
-        for (int t = 0; t < nthreads; t++) {
-            threads.emplace_back(worker, t);
-        }
-
-        for (auto& th : threads) {
-            th.join();
+#pragma omp critical
+            {
+                static int tiles_done = 0;
+                int done = ++tiles_done;
+                if (done % 10 == 0) {
+                    double progress = 100.0 * done / ((image_height / tileSize) * (image_width / tileSize));
+                    std::clog << "\rProgress: " << (int)progress << "% ";
+                }
+            }
         }
 
-
-        //if (output_format == OutputFormat::PPM) {
-        //    for (int j = 0; j < image_height; j++) {
-        //        for (int i = 0; i < image_width; i++) {
-        //            write_color(out, framebuffer[j * image_width + i]);
-        //        }
-        //    }
-        //}
-        //else if(output_format == OutputFormat::EXR)
-        //{
-        //    write_exr("image_linear_ACEScg.exr", framebuffer, image_width, image_height);
-        //}
-        /*
+        // Attendre que toutes les tuiles soient calculées
+        pool.wait();
        
-        */
-        
-        if (use_denoiser) {
-
-            std::clog << "\n\n[OIDN] Denoising in progress.. Please wait.\n";
-            denoise_with_oidn(framebuffer, albedobuffer, normalbuffer, image_width, image_height);
-            save_image("renders/SSRT_Linear_v001_denoised.exr", framebuffer, image_width, image_height);
-        }
-        else {
-            save_image("renders/SSRT_Linear_v001_denoised.exr", framebuffer, image_width, image_height);
-        }
-        
+        save_image("renders/SSRT_Linear_v001.exr", framebuffer, image_width, image_height);
+        /*
         auto t_end = std::chrono::high_resolution_clock::now();
-        
         std::chrono::duration<double> total = t_end - t_start;
+
         if (total.count() > 60) {
-            total = total / 60;
-            std::clog << "\nTotal render time : " << total.count() << " m\n";
+            std::clog << "\nTotal render time : " << total.count() / 60.0 << " minutes\n";
         }
         else {
-            std::clog << "\nTotal render time : " << total.count() << " s\n";
+            std::clog << "\nTotal render time : " << total.count() << " secondes\n";
         }
-        
-
-        std::clog << "\nRender Ended Correctly!! \n\n";
+        */
+        std::clog << "\nRender ended correctly!\n\n";
     }
+
     
 
 private: 
@@ -215,18 +210,6 @@ private:
         defocus_disk_v = v * defocus_radius;
     }
 
-
-
-
-    ray get_ray(int i, int j) const {
-        auto offset = sample_square();
-        auto pixel_sample = pixel00_location + ((i + offset.x()) * pixel_delta_u) + ((j + offset.y()) * pixel_delta_v);
-        auto ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
-        auto ray_direction = pixel_sample - ray_origin;
-        auto ray_time = random_double();
-        return ray(ray_origin, ray_direction, ray_time);
-    }
-
     vec3 sample_square() const {
         return vec3(random_double() - 0.5, random_double() - 0.5, 0);
     }
@@ -236,30 +219,16 @@ private:
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
-	color ray_color(const ray& r, int depth,  const hittable& world, vec3& out_albedo, vec3& out_normal) const {
+	inline __forceinline color ray_color(const ray& r, int depth,  const hittable& world) const noexcept {
 		
-        if (depth <= 0) {
-            return color(0, 0, 0);
-        }
+        if (depth <= 0) return color(0, 0, 0);
         
         hit_record rec;
 		
         
         if (!world.hit(r, interval(0.001, infinity), rec)) {
-            out_albedo = vec3(0, 0, 0);
-            out_normal = vec3(0, 0, 0);
             return background;
         }
-
-        out_normal = unit_vector(rec.normal);
-
-        if (auto lambert = dynamic_cast<const lambertian*>(rec.mat.get())) {
-            out_albedo = lambert->tex->value(rec.u, rec.v, rec.p);
-        }
-        else {
-            out_albedo = vec3(.5, .5, .5);
-        }
-        
 
         ray scattered;
         color attenuation;
@@ -268,7 +237,7 @@ private:
         if (!rec.mat->scatter(r, rec, attenuation, scattered))
             return color_from_emission;
 
-        color color_from_scatter = attenuation * ray_color(scattered, depth - 1, world, out_albedo, out_normal);
+        color color_from_scatter = attenuation * ray_color(scattered, depth - 1, world);
 
         return color_from_emission + color_from_scatter;
 

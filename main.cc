@@ -40,6 +40,8 @@ Quand une lib est pas reconnue..... d'avoir redémarré VSCode a résolu le problèm
 
 Les commandes pour build :
 
+                    ////////////// en mode debug ///////////////
+
 pointer vers le dossier ou se trouve le projet : en l'occurence chez moi "D:/SSRT/"
 
     cmake -B build -DCMAKE_TOOLCHAIN_FILE=C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake ----------------------> créer le dossier build avec tout dedans, non pas avec vcpkg qui proviens de VSCode, mais avec le vcpkg custom qui nous a servi a download toute les libs (a faire qu'une seule fois)
@@ -47,7 +49,10 @@ pointer vers le dossier ou se trouve le projet : en l'occurence chez moi "D:/SSR
     cmake --build build  ---------------------------------------------------------------------------------------------> fabriquer le .exe a partir de tout ce qu'on a build juste avant
     build\Debug\SSRT.exe ---------------------------------------------------------------------------------------------> lancer le .exe
 
+                    /////////////// en mode release ////////////
 
+    cmake --build build --config Release -j 
+    build\Release\SSRT.exe
 /////////////////////////////////// PREREQUIS //////////////////////////////////////////
 */
 
@@ -128,7 +133,6 @@ void static_spheres() {
 
     cam.samples_per_pixel = 100;
     cam.max_depth = 1000;
-    is_colorSpace_gamma = true;
 
     
 
@@ -184,8 +188,6 @@ void earth() {
     cam.defocus_angle = 0;
 
     cam.render(hittable_list(globe));
-
-    is_colorSpace_gamma = false;
 }
 
 void perlin_spheres() {
@@ -212,8 +214,6 @@ void perlin_spheres() {
     cam.defocus_angle = 0;
 
     cam.render(world);
-
-    is_colorSpace_gamma = false;
 }
 
 void quads() {
@@ -279,8 +279,6 @@ void simple_lights() {
     cam.defocus_angle = 0;
 
     cam.render(world);
-
-    is_colorSpace_gamma = true;
 }
 
 void cornell_box() {
@@ -338,7 +336,6 @@ void cornell_box() {
 
         cam.render(world);
 
-        is_colorSpace_gamma = true;
     
 }
 
@@ -403,7 +400,6 @@ void smoke_cornell_box() {
 
     cam.render(world);
 
-    is_colorSpace_gamma = true;
 
 }
 
@@ -458,14 +454,16 @@ void all_feature_cornell_box() {
     camera cam;
 
 
-    std::cout << "entrez la hauteur de l'image svp : ";
-    std::cin >> cam.image_width;
-    std::cout << "entrez le ratio d'aspect de votre image (ex: 1.77, 1.33, 2.35) : ";
-    std::cin >> cam.aspect_ratio;
-    std::cout << "entrez le field of view (en degrés) : ";
-    std::cin >> cam.vfov;
-    
-    
+    //std::cout << "Set Image Height : ";
+    //std::cin >> 
+        cam.image_width = 3840;
+    //std::cout << "Set Aspect Ratio : ";
+    //std::cin >> 
+        cam.aspect_ratio = 1;
+    //std::cout << "Set FOV (in degrees) : ";
+    //std::cin >> 
+        cam.vfov = 35;
+
     cam.samples_per_pixel = 5;
     cam.max_depth = 50;
     cam.background = color(0, 0, 0);
@@ -475,17 +473,13 @@ void all_feature_cornell_box() {
     cam.vup = vec3(0, 1, 0);
 
     cam.defocus_angle = 0;
-
-    cam.use_denoiser = true;
-    
+  
     cam.render(world);
-
-    is_colorSpace_gamma = true;
-
 }
 
 int main() {
-    
+
+    /*
     switch (9) {
     case 1: static_spheres(); break;
     case 2: checkered_spheres(); break;
@@ -497,5 +491,39 @@ int main() {
     case 8: smoke_cornell_box(); break;
     case 9: all_feature_cornell_box(); break;
     }
-    
+    */
+
+    std::ofstream log("benchmark_values/benchmark_results_v004.txt", std::ios::out);
+    if (!log) {
+        std::cerr << "Erreur : impossible de créer benchmark_results.txt\n";
+        return 1;
+    }
+
+    const int num_runs = 10;
+    double total_time = 0.0;
+
+    for (int i = 0; i < num_runs; i++) {
+        std::clog << "\n--- Rendu " << (i + 1) << " / " << num_runs << " ---\n";
+
+        auto t_start = std::chrono::high_resolution_clock::now();
+
+        all_feature_cornell_box();  // ta fonction de rendu principale
+
+        auto t_end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed = t_end - t_start;
+
+        total_time += elapsed.count();
+
+        log << "Run " << (i + 1) << " : " << elapsed.count() << " secondes\n";
+        std::clog << "Durée du rendu " << (i + 1) << " : " << elapsed.count() << " s\n";
+    }
+
+    double avg_time = total_time / num_runs;
+    log << "\nMoyenne sur " << num_runs << " rendus : " << avg_time << " secondes\n";
+    std::clog << "\nMoyenne : " << avg_time << " secondes\n";
+
+    log.close();
+    std::clog << "\nBenchmark terminé ! Résultats enregistrés dans benchmark_results.txt\n";
+
+    return 0;
 }

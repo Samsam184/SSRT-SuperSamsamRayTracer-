@@ -28,7 +28,7 @@ public:
 
 
 
-    bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
+    inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override {
         point3 current_center = center.at(r.time());
         vec3 oc = current_center - r.origin();
         auto a = r.direction().length_squared();

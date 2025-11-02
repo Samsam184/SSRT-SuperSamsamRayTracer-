@@ -1,0 +1,12 @@
+Run 1 : 267.939 secondes
+Run 2 : 280.833 secondes
+Run 3 : 290.011 secondes
+Run 4 : 383.594 secondes
+Run 5 : 276.455 secondes
+Run 6 : 267.377 secondes
+Run 7 : 395.048 secondes
+Run 8 : 281.413 secondes
+Run 9 : 276.969 secondes
+Run 10 : 383.135 secondes
+
+Moyenne sur 10 rendus : 310.277 secondes

@@ -21,7 +21,19 @@
     <ClInclude Include="D:\SSRT\constant_medium.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\SSRT\OIDN.h">
+    <ClInclude Include="D:\SSRT\fast_rng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\thread_pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\xoshiro128.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\morton2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\simd_vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

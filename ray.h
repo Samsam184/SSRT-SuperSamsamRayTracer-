@@ -6,18 +6,18 @@
 
 class ray {
 public:
-    ray() {}
+    inline ray() noexcept {}
 
-    ray(const point3& origin, const vec3& direction, double time) : orig(origin), dir(direction), tm(time) {}
-    ray(const point3& origin, const vec3& direction) : ray(origin, direction, 0) {}
+    inline ray(const point3& origin, const vec3& direction, double time) noexcept : orig(origin), dir(direction), tm(time) {}
+    inline ray(const point3& origin, const vec3& direction) noexcept : ray(origin, direction, 0) {}
 
 
-    const point3& origin() const { return orig; }
-    const vec3& direction() const { return dir; }
+    inline const point3& origin() const noexcept { return orig; }
+    inline const vec3& direction() const noexcept { return dir; }
 
-    double time() const { return tm; }
+    inline double time() const noexcept { return tm; }
 
-    point3 at(double t) const {
+    inline __forceinline point3 at(double t) const noexcept {
         return orig + t * dir;
     }
 

@@ -24,7 +24,7 @@ public:
 		return min <= x && x <= max; 
 	}
 
-	bool surrounds(double x) const {
+	bool __forceinline surrounds(double x) const noexcept {
 		return min < x && x < max;
 	}
 

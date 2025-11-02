@@ -24,7 +24,7 @@ public:
 class hittable {
 public: 
 	virtual ~hittable() = default;
-	virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const = 0;
+	virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept = 0;
 	virtual aabb bounding_box() const = 0;
 };
 
@@ -35,7 +35,7 @@ public:
 		bbox = object->bounding_box() + offset;
 	}
 
-	bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
+	inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override  {
 		ray offset_r(r.origin() - offset, r.direction(), r.time());
 
 		if (!object->hit(offset_r, ray_t, rec)) {
@@ -90,7 +90,7 @@ public:
 		bbox = aabb(min, max);
 	}
 
-	bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
+	inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override {
 
 		// Transform the ray from world space to object space.
 

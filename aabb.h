@@ -33,7 +33,7 @@ public:
 		return x;
 	}
 
-	bool hit(const ray& r, interval ray_t) const {
+	inline __forceinline bool hit(const ray& r, interval ray_t) const noexcept {
 		const point3& ray_orig = r.origin();
 		const vec3& ray_dir = r.direction();
 
