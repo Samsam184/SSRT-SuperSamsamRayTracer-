@@ -66,6 +66,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -98,7 +100,7 @@ events:
       The output was:
       0
       Version MSBuild 17.14.23+b0019275e pour .NET Framework
-      La g├®n├®ration a d├®marr├® 29/10/2025 20:09:31.
+      La g├®n├®ration a d├®marr├® 03/11/2025 00:21:28.
       
       Projet "D:\\SSRT\\build\\CMakeFiles\\4.1.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
       PrepareForBuild:
@@ -112,7 +114,7 @@ events:
         Using triplet "x64-windows" from "C:\\Users\\assam\\vcpkg\\installed\\x64-windows\\"
         Using normalized configuration "Release"
       ClCompile:
-        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\assam\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"C:\\Users\\assam\\vcpkg\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\\Users\\assam\\vcpkg\\installed\\x64-windows\\lib" /LIBPATH:"C:\\Users\\assam\\vcpkg\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "C:\\Users\\assam\\vcpkg\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
@@ -136,7 +138,7 @@ events:
           0 Avertissement(s)
           0 Erreur(s)
       
-      Temps ├®coul├® 00:00:00.83
+      Temps ├®coul├® 00:00:00.76
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -197,6 +199,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -232,6 +236,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -267,6 +273,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -361,6 +369,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/link"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/link"
@@ -466,6 +480,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/link"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/link"
@@ -522,6 +542,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -580,6 +602,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -615,6 +639,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -650,6 +676,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -744,6 +772,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/lld-link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/lld-link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/lld-link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/lld-link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/lld-link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/lld-link"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -849,6 +883,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/lld-link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/lld-link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/lld-link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/lld-link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/lld-link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/lld-link"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -954,6 +994,12 @@ events:
       - "C:/Program Files/CMake/bin/lld-link.com"
       - "C:/Program Files/CMake/bin/lld-link.exe"
       - "C:/Program Files/CMake/bin/lld-link"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link.com"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link.exe"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lld-link"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/lld-link.com"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/lld-link.exe"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/lld-link"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link.com"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/lld-link"
@@ -1009,6 +1055,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -1065,6 +1113,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1100,6 +1150,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1135,6 +1187,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1229,6 +1283,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/link"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/link"
@@ -1334,6 +1394,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/link"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/link.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/link.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/link"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/link.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/link.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/link"
@@ -1390,6 +1456,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -1446,6 +1514,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1481,6 +1551,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1516,6 +1588,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1610,6 +1684,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/mt.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/mt.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/mt"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/mt.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/mt.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/mt"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/mt.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/mt.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/mt"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/mt.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/mt.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/mt"
@@ -1715,6 +1795,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/mt.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/mt.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/mt"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/mt.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/mt.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/mt"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/mt.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/mt.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/mt"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/mt.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/mt.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/mt"
@@ -1792,6 +1878,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -1848,6 +1936,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1883,6 +1973,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -1918,6 +2010,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -2012,6 +2106,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/lib.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/lib.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/lib"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lib.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lib.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lib"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/lib.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/lib.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/lib"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/lib.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/lib.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/lib"
@@ -2117,6 +2217,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/lib.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/lib.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/lib"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lib.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lib.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/lib"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/lib.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/lib.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/lib"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/lib.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/lib.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/lib"
@@ -2173,6 +2279,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -2239,6 +2347,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -2293,6 +2403,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -2347,6 +2459,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -2474,6 +2588,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/rc"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/rc.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/rc.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/rc"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/rc.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/rc.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/rc"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/rc"
@@ -2636,6 +2756,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/rc"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/rc.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/rc.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/rc"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/rc.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/rc.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/rc"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/rc.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/rc.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/rc"
@@ -2770,6 +2896,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -2792,8 +2920,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b"
-      binary: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b"
+      source: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-1ml08r"
+      binary: "D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-1ml08r"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -2807,40 +2935,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b'
+        Change Dir: 'D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-1ml08r'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_d30fc.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_34889.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Version MSBuild 17.14.23+b0019275e pour .NET Framework
-        La g├®n├®ration a d├®marr├® 29/10/2025 20:09:32.
+        La g├®n├®ration a d├®marr├® 03/11/2025 00:21:29.
         
-        Projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\cmTC_d30fc.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
+        Projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1ml08r\\cmTC_34889.vcxproj" sur le n┼ôud 1 (cibles par d├®faut).
         PrepareForBuild:
-          Cr├®ation du r├®pertoire "cmTC_d30fc.dir\\Debug\\".
+          Cr├®ation du r├®pertoire "cmTC_34889.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Cr├®ation du r├®pertoire "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\Debug\\".
-          Cr├®ation du r├®pertoire "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\".
+          Cr├®ation du r├®pertoire "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1ml08r\\Debug\\".
+          Cr├®ation du r├®pertoire "cmTC_34889.dir\\Debug\\cmTC_34889.tlog\\".
         InitializeBuildStatus:
-          Cr├®ation de "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\unsuccessfulbuild", car "AlwaysCreate" a ├®t├® sp├®cifi├®.
-          Mise ├á jour de l'horodatage "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\unsuccessfulbuild".
+          Cr├®ation de "cmTC_34889.dir\\Debug\\cmTC_34889.tlog\\unsuccessfulbuild", car "AlwaysCreate" a ├®t├® sp├®cifi├®.
+          Mise ├á jour de l'horodatage "cmTC_34889.dir\\Debug\\cmTC_34889.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_d30fc.dir\\Debug\\\\" /Fd"cmTC_d30fc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /GR /Fo"cmTC_34889.dir\\Debug\\\\" /Fd"cmTC_34889.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35219 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_d30fc.dir\\Debug\\\\" /Fd"cmTC_d30fc.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /GR /Fo"cmTC_34889.dir\\Debug\\\\" /Fd"cmTC_34889.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\Debug\\cmTC_d30fc.exe" /INCREMENTAL /ILK:"cmTC_d30fc.dir\\Debug\\cmTC_d30fc.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b/Debug/cmTC_d30fc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-kq1x9b/Debug/cmTC_d30fc.lib" /MACHINE:X64  /machine:x64 cmTC_d30fc.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_d30fc.vcxproj -> D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\Debug\\cmTC_d30fc.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1ml08r\\Debug\\cmTC_34889.exe" /INCREMENTAL /ILK:"cmTC_34889.dir\\Debug\\cmTC_34889.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-1ml08r/Debug/cmTC_34889.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/SSRT/build/CMakeFiles/CMakeScratch/TryCompile-1ml08r/Debug/cmTC_34889.lib" /MACHINE:X64  /machine:x64 cmTC_34889.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_34889.vcxproj -> D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1ml08r\\Debug\\cmTC_34889.exe
         FinalizeBuildStatus:
-          Suppression du fichier "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\unsuccessfulbuild".
-          Mise ├á jour de l'horodatage "cmTC_d30fc.dir\\Debug\\cmTC_d30fc.tlog\\cmTC_d30fc.lastbuildstate".
-        G├®n├®ration du projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kq1x9b\\cmTC_d30fc.vcxproj" termin├®e (cibles par d├®faut).
+          Suppression du fichier "cmTC_34889.dir\\Debug\\cmTC_34889.tlog\\unsuccessfulbuild".
+          Mise ├á jour de l'horodatage "cmTC_34889.dir\\Debug\\cmTC_34889.tlog\\cmTC_34889.lastbuildstate".
+        G├®n├®ration du projet "D:\\SSRT\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1ml08r\\cmTC_34889.vcxproj" termin├®e (cibles par d├®faut).
         
         La g├®n├®ration a r├®ussi.
             0 Avertissement(s)
             0 Erreur(s)
         
-        Temps ├®coul├® 00:00:00.41
+        Temps ├®coul├® 00:00:00.42
         
       exitCode: 0
   -
@@ -2876,7 +3004,7 @@ events:
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:188 (find_program)"
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:617 (z_vcpkg_set_powershell_path)"
-      - "CMakeLists.txt:7 (add_executable)"
+      - "CMakeLists.txt:15 (add_executable)"
     mode: "program"
     variable: "Z_VCPKG_PWSH_PATH"
     description: "Path to a program."
@@ -2927,6 +3055,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -2981,6 +3111,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -3035,6 +3167,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -3162,6 +3296,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/pwsh"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/pwsh.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/pwsh.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/pwsh"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh"
@@ -3324,6 +3464,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/pwsh"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/pwsh.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/pwsh.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/pwsh"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh"
@@ -3486,6 +3632,12 @@ events:
       - "C:/Program Files/CMake/bin/pwsh.com"
       - "C:/Program Files/CMake/bin/pwsh.exe"
       - "C:/Program Files/CMake/bin/pwsh"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh.com"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh.exe"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/pwsh"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/pwsh.com"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/pwsh.exe"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/pwsh"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh.com"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh.exe"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/pwsh"
@@ -3577,6 +3729,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -3595,7 +3749,7 @@ events:
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:193 (find_program)"
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:617 (z_vcpkg_set_powershell_path)"
-      - "CMakeLists.txt:7 (add_executable)"
+      - "CMakeLists.txt:15 (add_executable)"
     mode: "program"
     variable: "Z_VCPKG_BUILTIN_POWERSHELL_PATH"
     description: "Path to a program."
@@ -3646,6 +3800,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -3700,6 +3856,8 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Git/cmd/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -3754,6 +3912,8 @@ events:
       - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/"
+      - "C:/Users/assam/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/assam/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/assam/AppData/Local/GitHubDesktop/bin/"
       - "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/"
@@ -3881,6 +4041,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Program Files/CMake/bin/powershell"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/powershell.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/powershell.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/powershell"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/powershell.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/powershell.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Programs/Python/Python313/powershell"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/debug/Users/assam/AppData/Local/Microsoft/WindowsApps/powershell"
@@ -4043,6 +4209,12 @@ events:
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Program Files/CMake/bin/powershell"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/powershell.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/powershell.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/Scripts/powershell"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/powershell.com"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/powershell.exe"
+      - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Programs/Python/Python313/powershell"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/powershell.com"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/powershell.exe"
       - "C:/Users/assam/vcpkg/installed/x64-windows/Users/assam/AppData/Local/Microsoft/WindowsApps/powershell"
@@ -4204,6 +4376,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -4224,7 +4398,7 @@ events:
       - "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
       - "C:/Users/assam/vcpkg/installed/x64-windows/share/tinyexr/tinyexrConfig.cmake:28 (find_dependency)"
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:9 (find_package)"
+      - "CMakeLists.txt:17 (find_package)"
     name: "miniz"
     configs:
       -
@@ -4317,6 +4491,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -4334,7 +4510,7 @@ events:
     kind: "find_package-v1"
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:9 (find_package)"
+      - "CMakeLists.txt:17 (find_package)"
     name: "tinyexr"
     configs:
       -
@@ -4427,6 +4603,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"
@@ -4444,7 +4622,7 @@ events:
     kind: "find_package-v1"
     backtrace:
       - "C:/Users/assam/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (_find_package)"
-      - "CMakeLists.txt:12 (find_package)"
+      - "CMakeLists.txt:20 (find_package)"
     name: "OpenColorIO"
     configs:
       -
@@ -4537,6 +4715,8 @@ events:
         - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
         - "C:\\Program Files\\Git\\cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\"
+        - "C:\\Users\\assam\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:\\Users\\assam\\AppData\\Local\\Microsoft\\WindowsApps"
         - "C:\\Users\\assam\\AppData\\Local\\GitHubDesktop\\bin"
         - "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin"

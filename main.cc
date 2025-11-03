@@ -463,8 +463,9 @@ void all_feature_cornell_box() {
     //std::cout << "Set FOV (in degrees) : ";
     //std::cin >> 
         cam.vfov = 35;
+        cam.use_denoiser = true;
 
-    cam.samples_per_pixel = 5;
+    cam.samples_per_pixel = 20;
     cam.max_depth = 50;
     cam.background = color(0, 0, 0);
 
@@ -499,7 +500,7 @@ int main() {
         return 1;
     }
 
-    const int num_runs = 10;
+    const int num_runs = 1;
     double total_time = 0.0;
 
     for (int i = 0; i < num_runs; i++) {
@@ -511,11 +512,15 @@ int main() {
 
         auto t_end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> elapsed = t_end - t_start;
-
         total_time += elapsed.count();
 
-        log << "Run " << (i + 1) << " : " << elapsed.count() << " secondes\n";
-        std::clog << "Durée du rendu " << (i + 1) << " : " << elapsed.count() << " s\n";
+        if (elapsed.count() > 60) {
+            std::clog << "Durée du rendu " << (i + 1) << " : " << elapsed.count() / 60 << " m\n";
+        }
+        else {
+            std::clog << "Durée du rendu " << (i + 1) << " : " << elapsed.count() << " s\n";
+        }
+        
     }
 
     double avg_time = total_time / num_runs;

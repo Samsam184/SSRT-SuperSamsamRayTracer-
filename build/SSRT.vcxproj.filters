@@ -36,6 +36,9 @@
     <ClInclude Include="D:\SSRT\simd_vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\SSRT\OIDN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\SSRT\CMakeLists.txt" />

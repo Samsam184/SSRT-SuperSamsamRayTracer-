@@ -12,7 +12,7 @@ else()
 	add_compile_options(-03 -march=native -ffast-math -funroll-loops)
 endif()
 
-add_executable(SSRT main.cc "rtw_exr_image.h" "perlin.h" "quad.h" "image_io.h" "constant_medium.h"   "fast_rng.h" "thread_pool.h" "xoshiro128.h" "morton2D.h"  "simd_vec3.h")
+add_executable(SSRT main.cc "rtw_exr_image.h" "perlin.h" "quad.h" "image_io.h" "constant_medium.h"   "fast_rng.h" "thread_pool.h" "xoshiro128.h" "morton2D.h"  "simd_vec3.h"  "OIDN.h")
 
 find_package(tinyexr CONFIG REQUIRED)
 target_link_libraries(SSRT PRIVATE unofficial::tinyexr::tinyexr)
@@ -20,9 +20,22 @@ target_link_libraries(SSRT PRIVATE unofficial::tinyexr::tinyexr)
 find_package(OpenColorIO CONFIG REQUIRED)
 target_link_libraries(SSRT PRIVATE OpenColorIO::OpenColorIO)
 
-#faudra set sa destination a oidn soi même pour l'instant ptdrrr'
-include_directories("D:/SSRT/external/oidn-2.3.3.x64.windows/include")
-link_directories("D:/SSRT/external/oidn-2.3.3.x64.windows/lib")
-target_link_libraries(SSRT PRIVATE "D:/SSRT/external/oidn-2.3.3.x64.windows/lib/OpenImageDenoise.lib")
+# === OIDN ===
+set(OIDN_ROOT "${PROJECT_SOURCE_DIR}/external/oidn")
+
+include_directories("${PROJECT_SOURCE_DIR}/external/oidn/include")
+link_directories("${PROJECT_SOURCE_DIR}/external/oidn/build/Release")
+target_link_libraries(SSRT PRIVATE OpenImageDenoise)
+
+
+# Copier automatiquement les DLL nécessaires à côté de l'exécutable
+add_custom_command(TARGET SSRT POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${OIDN_ROOT}/build/Release/OpenImageDenoise.dll"
+        "${OIDN_ROOT}/build/Release/OpenImageDenoise_core.dll"
+        "${OIDN_ROOT}/build/Release/OpenImageDenoise_device_cpu.dll"
+        "${OIDN_ROOT}/build/Release/tbb12.dll"
+        $<TARGET_FILE_DIR:SSRT>
+)
 
 target_include_directories(SSRT PRIVATE "./external/pcg")

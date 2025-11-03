@@ -20,10 +20,12 @@
 #include "fast_rng.h"
 #include "thread_pool.h"
 #include "morton2D.h"
+#include "OIDN.h"
 
 class camera {
 public: 
     //variables
+    bool use_denoiser = true;
     double aspect_ratio = 16.0/9.0;
     int image_width = 100;
     int samples_per_pixel = 10;
@@ -120,14 +122,21 @@ public:
 
                         ray r(ray_origin, ray_direction);
 
+                        vec3 alb(0, 0, 0), nrm(0, 0, 0);
                         color sample_color = ray_color(r, max_depth, world);
 
                         pixel_color += sample_color;
+                        pixel_albedo += alb;
+                        pixel_normal += nrm;
                     }
 
                     pixel_color *= pixel_samples_scale;
+                    pixel_albedo *= pixel_samples_scale;
+                    pixel_normal = unit_vector(pixel_normal);
 
                     framebuffer[j * image_width + i] = pixel_color;
+                    albedobuffer[j * image_width + i] = pixel_albedo;
+                    normalbuffer[j * image_width + i] = pixel_normal;
                 }
             }
 
@@ -145,7 +154,18 @@ public:
         // Attendre que toutes les tuiles soient calculées
         pool.wait();
        
-        save_image("renders/SSRT_Linear_v001.exr", framebuffer, image_width, image_height);
+
+        if (use_denoiser) {
+            std::cout << "\n\n[OIDN] Denoising in progress... Please wait.\n";
+            denoise_with_oidn(framebuffer, albedobuffer, normalbuffer, image_width, image_height);
+            save_image("renders/SSRT_Linear_denoised_v001.exr", framebuffer, image_width, image_height);
+            std::clog << "\nRender ended correctly!\n\n";
+
+        }
+        else {
+            save_image("renders/SSRT_Linear_v001.exr", framebuffer, image_width, image_height);
+            std::clog << "\nRender ended correctly!\n\n";
+        }
         /*
         auto t_end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double> total = t_end - t_start;
@@ -157,7 +177,6 @@ public:
             std::clog << "\nTotal render time : " << total.count() << " secondes\n";
         }
         */
-        std::clog << "\nRender ended correctly!\n\n";
     }
 
     
