@@ -50,6 +50,7 @@ cmake_ninja_workdir = D$:\SSRT\out\build\x64-Debug\
 build cmake_object_order_depends_target_SSRT: phony || .
 
 build CMakeFiles\SSRT.dir\main.cc.obj: CXX_COMPILER__SSRT_unscanned_Debug D$:\SSRT\main.cc || cmake_object_order_depends_target_SSRT
+  DEFINES = -DUSE_PACKET_TRACKING
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /O2 /fp:fast /Ob2 /Oi /Ot /GL /GS- /arch:AVX2 /DNDEBUG
   INCLUDES = -ID:\SSRT\external\oidn\include -ID:\SSRT\.\external\pcg -external:IC:\Users\assam\vcpkg\installed\x64-windows\include -external:IC:\Users\assam\vcpkg\installed\x64-windows\include\miniz -external:W0
   OBJECT_DIR = CMakeFiles\SSRT.dir

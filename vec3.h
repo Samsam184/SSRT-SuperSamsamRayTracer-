@@ -180,4 +180,5 @@ inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) noexce
 	return r_out_perp + r_out_parallel;
 }
 
+
 #endif

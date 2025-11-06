@@ -39,6 +39,18 @@
     <ClInclude Include="D:\SSRT\OIDN.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\SSRT\packet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\aabb_packet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\bvh_sah.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\onb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\SSRT\CMakeLists.txt" />

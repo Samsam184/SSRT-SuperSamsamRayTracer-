@@ -413,10 +413,10 @@ void all_feature_cornell_box() {
     auto red = make_shared<lambertian>(color(.65, .05, .05));
     auto white = make_shared<lambertian>(color(.73, .73, .73));
     auto green = make_shared<lambertian>(color(.12, .45, .15));
-    auto metallic_blue = make_shared<metal>(color(0,.2,1), .1);
+    //auto metallic_blue = make_shared<coat>(red, 1.5, color(.2, .1, 1));
     auto glass = make_shared<dielectric>(1.33);
     auto light = make_shared<diffuse_light>(color(5, 5, 5));
-
+    auto mat = make_shared<bump_normal>(make_shared<lambertian>(color(.65, .05, .05)), make_shared<other_image_texture>("D:/SSRT/external/bump_texture.png"), 1);
 
     //Cornell Box
     world.add(make_shared<quad>(point3(555, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), green));
@@ -430,12 +430,12 @@ void all_feature_cornell_box() {
     shared_ptr<hittable> box1 = box(point3(0, 0, 0), point3(165, 330, 165), white);
     box1 = make_shared<rotate_y>(box1, 25);
     box1 = make_shared<translate>(box1, vec3(265, 0, 295));
-    world.add(make_shared<constant_medium>(box1,.03, color(0, .05, 1)));
+    world.add(make_shared<constant_medium>(box1,.01, color(0, .05, 1)));
 
     //Box 2
-    shared_ptr<hittable> box2 = box(point3(0, 0, 0), point3(165, 165, 165), white);
+    shared_ptr<hittable> box2 = box(point3(0, 0, 0), point3(165, 165, 165), mat);
     box2 = make_shared<rotate_y>(box2, -18);
-    box2 = make_shared<translate>(box2, vec3(130, 0, 65));
+    box2 = make_shared<translate>(box2, vec3(130, .1, 65));
     world.add(box2);
 
     //Volume Env
@@ -444,28 +444,25 @@ void all_feature_cornell_box() {
     world.add(make_shared<constant_medium>(boxVolumeEnv, 0, color(1, 1, 1)));
 
     world.add(make_shared<sphere>(point3(190, 380, 220), 100, glass));
-    world.add(make_shared<sphere>(point3(400, 100, 120), 85, metallic_blue));
+    world.add(make_shared<sphere>(point3(400, 100, 120), 85, mat));
 
     //BVH Optimisation settings
     world = hittable_list(make_shared<bvh_node>(world));
-
-
     //Camera and Rendering
     camera cam;
 
 
     //std::cout << "Set Image Height : ";
     //std::cin >> 
-        cam.image_width = 3840;
+        cam.image_width = 1920;
     //std::cout << "Set Aspect Ratio : ";
     //std::cin >> 
         cam.aspect_ratio = 1;
     //std::cout << "Set FOV (in degrees) : ";
     //std::cin >> 
         cam.vfov = 35;
-        cam.use_denoiser = true;
 
-    cam.samples_per_pixel = 20;
+    cam.samples_per_pixel = 5;
     cam.max_depth = 50;
     cam.background = color(0, 0, 0);
 
@@ -475,7 +472,11 @@ void all_feature_cornell_box() {
 
     cam.defocus_angle = 0;
   
+    cam.use_denoiser = true;
+
     cam.render(world);
+
+
 }
 
 int main() {
@@ -494,7 +495,7 @@ int main() {
     }
     */
 
-    std::ofstream log("benchmark_values/benchmark_results_v004.txt", std::ios::out);
+    std::ofstream log("benchmark_values/benchmark_results_v006.txt", std::ios::out);
     if (!log) {
         std::cerr << "Erreur : impossible de créer benchmark_results.txt\n";
         return 1;

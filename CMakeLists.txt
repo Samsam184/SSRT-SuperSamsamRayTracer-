@@ -12,7 +12,7 @@ else()
 	add_compile_options(-03 -march=native -ffast-math -funroll-loops)
 endif()
 
-add_executable(SSRT main.cc "rtw_exr_image.h" "perlin.h" "quad.h" "image_io.h" "constant_medium.h"   "fast_rng.h" "thread_pool.h" "xoshiro128.h" "morton2D.h"  "simd_vec3.h"  "OIDN.h")
+add_executable(SSRT main.cc "rtw_exr_image.h" "perlin.h" "quad.h" "image_io.h" "constant_medium.h" "fast_rng.h" "thread_pool.h" "xoshiro128.h" "morton2D.h" "simd_vec3.h" "OIDN.h" "packet.h" "aabb_packet.h"  "bvh_sah.h" "onb.h")
 
 find_package(tinyexr CONFIG REQUIRED)
 target_link_libraries(SSRT PRIVATE unofficial::tinyexr::tinyexr)
@@ -39,3 +39,5 @@ add_custom_command(TARGET SSRT POST_BUILD
 )
 
 target_include_directories(SSRT PRIVATE "./external/pcg")
+
+add_compile_definitions(USE_PACKET_TRACKING)

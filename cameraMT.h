@@ -22,6 +22,10 @@
 #include "morton2D.h"
 #include "OIDN.h"
 
+#ifdef USE_PACKET_TRACKING
+#include "packet.h"
+#endif
+
 class camera {
 public: 
     //variables
@@ -60,7 +64,7 @@ public:
 
 #ifdef _WIN32 
         DWORD_PTR mask = 0xFF;
-        SetThreadAffinityMask(GetCurrentThread(), mask);
+        SetThreadAffinityMask(GetCurrentThread(), 0xFFFF);
 #endif
 
         int nthreads = std::thread::hardware_concurrency();
@@ -68,8 +72,6 @@ public:
 
         ThreadPool pool(nthreads);
         int tileSize = 128; // taille d’une tuile : 32x32 pixels
-
-        //auto t_start = std::chrono::high_resolution_clock::now();
 
         initialize();
 
@@ -120,6 +122,29 @@ public:
                         const point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
                         const vec3 ray_direction = pixel_sample - ray_origin;
 
+#ifdef USE_PACKET_TRACING
+                        ray8 packet;
+                        hit8 hits;
+
+                        for (int s = 0; s < samples_per_pixel; s += 8) {
+                            for (int k = 0; k < 8; k++) {
+                                float rx = randf(rng_state);
+                                float ry = randf(rng_state);
+                                const vec3 pixel_sample = pixel_base + (rx - 0.5f) * pixel_delta_u + (ry - 0.5f) * pixel_delta_v;
+
+                                const point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
+                                const vec3 ray_direction = pixel_sample - ray_origin;
+
+                                packet.setRay(k, ray(ray_origin, ray_direction));
+                            }
+
+                            hit_packet(mon_sphere, packet, hits);
+
+                            for (int k = 0; k < 8; k++) {
+                                if (hits.hit(k)) pixel_color += color(1, 0, 0);
+                            }
+                        }
+#else
                         ray r(ray_origin, ray_direction);
 
                         vec3 alb(0, 0, 0), nrm(0, 0, 0);
@@ -128,6 +153,7 @@ public:
                         pixel_color += sample_color;
                         pixel_albedo += alb;
                         pixel_normal += nrm;
+#endif
                     }
 
                     pixel_color *= pixel_samples_scale;
@@ -144,7 +170,7 @@ public:
             {
                 static int tiles_done = 0;
                 int done = ++tiles_done;
-                if (done % 10 == 0) {
+                if (done % 3 == 0) {
                     double progress = 100.0 * done / ((image_height / tileSize) * (image_width / tileSize));
                     std::clog << "\rProgress: " << (int)progress << "% ";
                 }
@@ -166,17 +192,6 @@ public:
             save_image("renders/SSRT_Linear_v001.exr", framebuffer, image_width, image_height);
             std::clog << "\nRender ended correctly!\n\n";
         }
-        /*
-        auto t_end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> total = t_end - t_start;
-
-        if (total.count() > 60) {
-            std::clog << "\nTotal render time : " << total.count() / 60.0 << " minutes\n";
-        }
-        else {
-            std::clog << "\nTotal render time : " << total.count() << " secondes\n";
-        }
-        */
     }
 
     
@@ -238,29 +253,39 @@ private:
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
-	inline __forceinline color ray_color(const ray& r, int depth,  const hittable& world) const noexcept {
+	inline __forceinline color ray_color(const ray& r_in, int max_depth,  const hittable& world) const noexcept {
 		
-        if (depth <= 0) return color(0, 0, 0);
-        
-        hit_record rec;
-		
-        
-        if (!world.hit(r, interval(0.001, infinity), rec)) {
-            return background;
+        color accumulated(0.0f, 0.0f, 0.0f);
+        color attenuation(1.0f, 1.0f, 1.0f);
+        ray current_ray = r_in;
+#pragma omp simd
+        for (int depth = 0; depth < max_depth; depth++) {
+            hit_record rec;
+
+            if (!world.hit(current_ray, interval(0.001f, infinity), rec)) {
+                // Color test
+                vec3 unit_dir = unit_vector(current_ray.direction());
+                double t = 0.5 * (unit_dir.y() + 1.0);
+                color sky = color(0, 0, 0);//(1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
+                accumulated += attenuation * sky;
+                break;
+            }
+
+            const material* mat_ptr = rec.mat.get();
+            const color emitted = mat_ptr->emitted(rec.u, rec.v, rec.p);
+
+            ray scattered;
+            color local_attenuation;
+            if (!mat_ptr->scatter(current_ray, rec, local_attenuation, scattered)) {
+                accumulated += attenuation * emitted;
+                break;
+            }
+
+            accumulated += attenuation * emitted;
+            attenuation = attenuation * local_attenuation;
+            current_ray = scattered;
         }
-
-        ray scattered;
-        color attenuation;
-        color color_from_emission = rec.mat->emitted(rec.u, rec.v, rec.p);
-
-        if (!rec.mat->scatter(r, rec, attenuation, scattered))
-            return color_from_emission;
-
-        color color_from_scatter = attenuation * ray_color(scattered, depth - 1, world);
-
-        return color_from_emission + color_from_scatter;
-
+        return accumulated;
 	}
-
 };
 #endif
