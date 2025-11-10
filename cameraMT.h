@@ -33,7 +33,7 @@ public:
     double aspect_ratio = 16.0/9.0;
     int image_width = 100;
     int samples_per_pixel = 10;
-    int max_depth = 10;
+    int max_depth = 550;
     color background;
     double vfov = 90;
     point3 lookfrom = point3(0, 0, 0);
@@ -41,6 +41,8 @@ public:
     vec3 vup = vec3(0, 1, 0);
     double defocus_angle = 0;
     double focus_dist = 10;
+    double near_plane = .1;
+    double far_plane = 555;
     //variables
 
 
@@ -75,9 +77,15 @@ public:
 
         initialize();
 
-        std::vector<color> framebuffer(image_width * image_height);
+        std::vector<color> beautybuffer(image_width * image_height);
         std::vector<color> albedobuffer(image_width * image_height);
         std::vector<color> normalbuffer(image_width * image_height);
+        std::vector<color> positionbuffer(image_width * image_height);
+        std::vector<color> depthbuffer(image_width * image_height);
+        std::vector<color> roughnessbuffer(image_width * image_height);
+        std::vector<color> metallicbuffer(image_width * image_height);
+        std::vector<color> emissionbuffer(image_width * image_height);
+
 
         std::mutex cout_mutex;
 
@@ -97,22 +105,29 @@ public:
 #pragma omp parallel for schedule(dynamic)
         for (int tile_idx = 0; tile_idx < (int)tiles.size(); ++tile_idx) {
             const auto& [code, xy] = tiles[tile_idx];
+
             int x = xy.first;
             int y = xy.second;
 
             uint64_t rng_state = 1337u + y * image_width + x;
 
+            // === à l'intérieur de render, boucle sur les pixels ===
             for (int j = y; j < std::min(y + tileSize, image_height); ++j) {
                 for (int i = x; i < std::min(x + tileSize, image_width); ++i) {
 
-                    color pixel_color(0, 0, 0);
-                    vec3 pixel_albedo(0, 0, 0);
-                    vec3 pixel_normal(0, 0, 0);
+                    const int idx = j * image_width + i; // index entier
+
+                    color pixel_beauty(0, 0, 0);
+                    color pixel_albedo(0, 0, 0);
+                    color pixel_normal(0, 0, 0);
+                    color pixel_position(0, 0, 0);
+                    float pixel_depth = 0;
+                    color pixel_roughness(0, 0, 0);
+                    color pixel_metallic(0, 0, 0);
+                    color pixel_emission(0, 0, 0);
                     const point3 pixel_base = pixel00_location + i * pixel_delta_u + j * pixel_delta_v;
 
-                    // --- Échantillonnage multiple pour AA ---
-#pragma omp simd
-                    for (int sample = 0; sample < samples_per_pixel; sample++) {
+                    for (int sample = 0; sample < samples_per_pixel; ++sample) {
                         float rx = randf(rng_state);
                         float ry = randf(rng_state);
 
@@ -122,49 +137,49 @@ public:
                         const point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
                         const vec3 ray_direction = pixel_sample - ray_origin;
 
-#ifdef USE_PACKET_TRACING
-                        ray8 packet;
-                        hit8 hits;
-
-                        for (int s = 0; s < samples_per_pixel; s += 8) {
-                            for (int k = 0; k < 8; k++) {
-                                float rx = randf(rng_state);
-                                float ry = randf(rng_state);
-                                const vec3 pixel_sample = pixel_base + (rx - 0.5f) * pixel_delta_u + (ry - 0.5f) * pixel_delta_v;
-
-                                const point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
-                                const vec3 ray_direction = pixel_sample - ray_origin;
-
-                                packet.setRay(k, ray(ray_origin, ray_direction));
-                            }
-
-                            hit_packet(mon_sphere, packet, hits);
-
-                            for (int k = 0; k < 8; k++) {
-                                if (hits.hit(k)) pixel_color += color(1, 0, 0);
-                            }
-                        }
-#else
                         ray r(ray_origin, ray_direction);
 
-                        vec3 alb(0, 0, 0), nrm(0, 0, 0);
-                        color sample_color = ray_color(r, max_depth, world);
+                        // out pointers vers variables locales
+                        color alb_out, nrm_out, pos_out, emit_out;
+                        float depth_out = 0.0f, rough_out = 0.0f, metal_out = 0.0f;
+                        
+                        color sample_color = ray_color(r, max_depth, world,
+                            &alb_out, &nrm_out, &depth_out, &pos_out, &rough_out, &metal_out, &emit_out);
 
-                        pixel_color += sample_color;
-                        pixel_albedo += alb;
-                        pixel_normal += nrm;
-#endif
+                        
+                        // accumulate
+                        pixel_beauty += sample_color;
+                        pixel_albedo += alb_out;
+                        pixel_normal += nrm_out;
+                        pixel_position += pos_out;
+                        pixel_depth += depth_out;
+                        pixel_metallic += color(metal_out, metal_out, metal_out);
+                        pixel_roughness += color(rough_out, rough_out, rough_out);
+                        pixel_emission += emit_out;
                     }
 
-                    pixel_color *= pixel_samples_scale;
-                    pixel_albedo *= pixel_samples_scale;
-                    pixel_normal = unit_vector(pixel_normal);
+                    
 
-                    framebuffer[j * image_width + i] = pixel_color;
-                    albedobuffer[j * image_width + i] = pixel_albedo;
-                    normalbuffer[j * image_width + i] = pixel_normal;
+                    pixel_beauty *= pixel_samples_scale;
+                    pixel_albedo *= pixel_samples_scale;
+                    pixel_normal *= pixel_samples_scale;
+                    pixel_position *= pixel_samples_scale;
+                    pixel_depth *= pixel_samples_scale;
+                    pixel_metallic *= pixel_samples_scale;
+                    pixel_roughness *= pixel_samples_scale;
+                    pixel_emission *= pixel_samples_scale;
+
+                    beautybuffer[idx] = pixel_beauty;
+                    albedobuffer[idx] = pixel_albedo;
+                    normalbuffer[idx] = pixel_normal;
+                    positionbuffer[idx] = pixel_position;
+                    depthbuffer[idx] = color((pixel_depth - float(near_plane)) / float(far_plane - near_plane), (pixel_depth - float(near_plane)) / float(far_plane - near_plane), (pixel_depth - float(near_plane)) / float(far_plane - near_plane));
+                    metallicbuffer[idx] = pixel_metallic;
+                    roughnessbuffer[idx] = pixel_roughness;
+                    emissionbuffer[idx] = pixel_emission;
                 }
             }
+
 
 #pragma omp critical
             {
@@ -179,17 +194,37 @@ public:
 
         // Attendre que toutes les tuiles soient calculées
         pool.wait();
-       
+        
 
         if (use_denoiser) {
+            
+            denoise_with_oidn(beautybuffer, albedobuffer, normalbuffer, image_width, image_height);
+
+            std::vector<AOVLayer> layers = {
+            {"RGBA", beautybuffer},
+            {"albedo", albedobuffer},
+            {"depth", depthbuffer},
+            {"emission", emissionbuffer},
+            {"metallic", metallicbuffer},
+            {"normal", normalbuffer},
+            {"position", positionbuffer},
+            {"roughness", roughnessbuffer},
+            };
+
             std::cout << "\n\n[OIDN] Denoising in progress... Please wait.\n";
-            denoise_with_oidn(framebuffer, albedobuffer, normalbuffer, image_width, image_height);
-            save_image("renders/SSRT_Linear_denoised_v001.exr", framebuffer, image_width, image_height);
+            write_exr_multilayer("renders/SSRT_Linear_denoised_v001.exr", layers, image_width, image_height);
             std::clog << "\nRender ended correctly!\n\n";
 
         }
         else {
-            save_image("renders/SSRT_Linear_v001.exr", framebuffer, image_width, image_height);
+            std::vector<AOVLayer> layers = { 
+            {"RGBA", beautybuffer},
+            {"albedo", albedobuffer},
+            {"normal", normalbuffer},
+            {"position", positionbuffer},
+            {"depth", depthbuffer},
+            };
+            write_exr_multilayer("renders/SSRT_Linear_v001.exr", layers, image_width, image_height);
             std::clog << "\nRender ended correctly!\n\n";
         }
     }
@@ -253,39 +288,98 @@ private:
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
-	inline __forceinline color ray_color(const ray& r_in, int max_depth,  const hittable& world) const noexcept {
-		
+    inline __forceinline color ray_color(
+        const ray& r_in, int max_depth, const hittable& world,
+        color* out_albedo = nullptr,
+        color* out_normal = nullptr,
+        float* out_depth = nullptr,
+        color* out_position = nullptr,
+        float* out_roughness = nullptr,
+        float* out_mettalic = nullptr,
+        color* out_emission = nullptr) const noexcept
+    {
         color accumulated(0.0f, 0.0f, 0.0f);
-        color attenuation(1.0f, 1.0f, 1.0f);
-        ray current_ray = r_in;
-#pragma omp simd
-        for (int depth = 0; depth < max_depth; depth++) {
+        color throughput(1.0f, 1.0f, 1.0f);
+        ray current = r_in;
+
+        
+
+
+        for (int depth = 0; depth < max_depth; ++depth) {
             hit_record rec;
 
-            if (!world.hit(current_ray, interval(0.001f, infinity), rec)) {
-                // Color test
-                vec3 unit_dir = unit_vector(current_ray.direction());
-                double t = 0.5 * (unit_dir.y() + 1.0);
-                color sky = color(0, 0, 0);//(1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
-                accumulated += attenuation * sky;
+            if (!world.hit(current, interval(0.001, infinity), rec)) {
+                accumulated += throughput * background;
                 break;
             }
 
             const material* mat_ptr = rec.mat.get();
-            const color emitted = mat_ptr->emitted(rec.u, rec.v, rec.p);
+            color emitted = mat_ptr ? mat_ptr->emitted(rec.u, rec.v, rec.p) : color(0, 0, 0);
+
+            // === AOVs: enregistrés uniquement au premier hit ===
+            if (depth == 0) {
+                if (out_albedo) {
+                    *out_albedo = mat_ptr ? mat_ptr->get_base_color(rec.u, rec.v, rec.p) : color(1, 1, 1);
+                }
+                if (out_normal) {
+                    vec3 n = unit_vector(rec.normal);
+                    *out_normal = color(-n.x(), n.y(), -n.z());
+                }
+                if (out_depth) {
+                    double dist = (rec.p - lookfrom).length();
+                    *out_depth = static_cast<float>(dist);
+                }
+                if (out_position) {
+                    *out_position = rec.p;
+                }
+                if (out_roughness) {
+
+                    double rough = 0.0;
+
+                    if (dynamic_cast<const lambertian*>(mat_ptr)) {
+                        rough = 1.0;
+                    }
+
+                    else if (auto m = dynamic_cast<const metal*>(mat_ptr)) {
+                        rough = m->roughness;
+                    } 
+                    
+                    else if (auto d = dynamic_cast<const dielectric*>(mat_ptr)) {
+                        rough = 0.0;
+                    }
+
+                    else if (auto q = dynamic_cast<const coat*>(mat_ptr)) {
+                        rough = q->roughness;
+                    }
+
+                    *out_roughness = rough;
+                }
+                    
+                if (out_mettalic) {
+                    *out_mettalic = mat_ptr ? mat_ptr->metallic : 0.0f;
+                }
+
+                if (out_emission) {
+                    *out_emission = emitted;
+                }
+            }
 
             ray scattered;
-            color local_attenuation;
-            if (!mat_ptr->scatter(current_ray, rec, local_attenuation, scattered)) {
-                accumulated += attenuation * emitted;
+            color local_atten;
+            if (!mat_ptr || !mat_ptr->scatter(current, rec, local_atten, scattered)) {
+                accumulated += throughput * emitted;
                 break;
             }
 
-            accumulated += attenuation * emitted;
-            attenuation = attenuation * local_attenuation;
-            current_ray = scattered;
+            accumulated += throughput * emitted;
+            throughput = throughput * local_atten;
+            current = scattered;
         }
+
         return accumulated;
-	}
+    }
+
+
+
 };
 #endif

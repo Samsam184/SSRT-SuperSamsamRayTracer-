@@ -16,10 +16,15 @@ public:
     double u;
     double v;
     bool front_face;
+    color albedo;
+    float roughness = 0.0f;
+    float metallic = 0.0f;
+    color emission = color(0, 0, 0);
 
     void set_face_normal(const ray& r, const vec3& outward_normal) {
         front_face = dot(r.direction(), outward_normal) < 0;
         normal = front_face ? outward_normal : -outward_normal;
+        //normal = unit_vector(normal);
     }
 };
 

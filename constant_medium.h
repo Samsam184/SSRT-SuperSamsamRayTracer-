@@ -12,6 +12,10 @@ public:
 
 	constant_medium(shared_ptr<hittable> boundary, double density, const color& albedo) : boundary(boundary), neg_inv_density(-1/density), phase_function(make_shared<isotropic>(albedo)) {}
 
+	inline color get_base_color(double u, double v, const point3& p) const noexcept {
+		return phase_function ? phase_function->get_base_color(u, v, p) : color(1, 1, 1);
+	}
+
 	inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override {
 		hit_record rec1, rec2;
 
@@ -57,6 +61,8 @@ public:
 		return true;
 
 	}
+
+	
 
 	aabb bounding_box() const override { return boundary->bounding_box(); }
 

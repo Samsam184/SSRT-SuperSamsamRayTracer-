@@ -23,6 +23,12 @@ public:
 		return color(0, 0, 0);
 	}
 
+	virtual color get_base_color(double u, double v, const point3& p) const {
+		return color(1, 1, 1);
+	}
+
+	double metallic = 0.0;
+	double roughness = .5;
 
 };
 
@@ -31,7 +37,10 @@ public:
 
 	shared_ptr<texture> tex;
 
-	lambertian(const color& albedo) : tex(make_shared<solid_color>(albedo)) {}
+	lambertian(const color& albedo) : tex(make_shared<solid_color>(albedo)) {
+		metallic = 0.0;
+		roughness = 1.0;
+	}
 	lambertian(shared_ptr<texture> tex) : tex(tex) {}
 
 	inline __forceinline bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const noexcept override {
@@ -44,32 +53,58 @@ public:
 		return true;
 	}
 
+	color get_base_color(double u, double v, const point3& p) const override {
+		return tex ? tex->value(u, v, p) : color(1,1,1);
+	}
+
+
+
 private: 
 	color albedo;
 };
 
 class metal : public material {
 public:
-	metal(const color& albedo, double fuzz) : albedo(albedo), fuzz(fuzz < 1 ? fuzz : 1) {}
+
+	double fuzz;
+
+	metal(const color& albedo, double fuzz) : albedo(albedo), fuzz(fuzz < 1 ? fuzz : 1) {
+		metallic = 1.0;
+		roughness = fuzz;
+	}
 
 	inline __forceinline bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const noexcept override {
 		vec3 reflected = reflect(r_in.direction(), rec.normal);
-		reflected = unit_vector(reflected) + (fuzz * random_unit_vector());
+		reflected = unit_vector(reflected) + (roughness * random_unit_vector());
 		scattered = ray(rec.p, reflected, r_in.time());
 		attenuation = albedo;
 		return (dot(scattered.direction(), rec.normal) > 0);
 	}
 
+	color get_base_color(double u, double v, const point3& p) const override {
+		return albedo;
+	}
+
+
 private: 
 	color albedo;
-	double fuzz;
+	
 };
 
 class dielectric : public material {
 public: 
-	dielectric(double refraction_index) : refraction_index(refraction_index) {}
+
+	mutable bool force_scatter_false = false;
+
+	dielectric(double refraction_index) : refraction_index(refraction_index) {
+		metallic = 0.0;
+		roughness = 0.0;
+	}
 
 	inline __forceinline bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const noexcept override {
+		
+		if (force_scatter_false) return false;
+		
 		attenuation = color(1.0, 1.0, 1.0);
 		double ri = rec.front_face ? (1.0 / refraction_index) : refraction_index;
 
@@ -89,6 +124,10 @@ public:
 
 		scattered = ray(rec.p, direction, r_in.time());
 		return true;
+	}
+
+	color get_base_color(double, double, const point3&) const override {
+		return color(1, 1, 1); 
 	}
 
 
@@ -111,6 +150,11 @@ public:
 		return tex->value(u, v, p);
 	}
 
+	color get_base_color(double u, double v, const point3& p) const override {
+		return tex ? tex->value(u, v, p) : color(1, 1, 1);
+	}
+
+
 private: 
 	shared_ptr<texture> tex;
 };
@@ -125,6 +169,11 @@ public:
 		attenuation = tex->value(rec.u, rec.v, rec.p);
 		return true;
 	}
+
+	color get_base_color(double u, double v, const point3& p) const override {
+		return tex ? tex->value(u, v, p) : color(1, 1, 1);
+	}
+
 private: 
 	shared_ptr<texture> tex;
 };
@@ -158,6 +207,12 @@ public:
 		// Sinon : diffusion du matériau sous-jacent
 		return base->scatter(r_in, rec, attenuation, scattered);
 	}
+
+	color get_base_color(double u, double v, const point3& p) const override {
+		return base ? base->get_base_color(u, v, p) : coat_tint;
+	}
+
+
 };
 
 class sheen : public material {
@@ -186,6 +241,12 @@ public:
 		scattered = base_scattered;
 		return true;
 	}
+
+	color get_base_color(double u, double v, const point3& p) const override {
+		return base ? base->get_base_color(u, v, p) : tint;
+	}
+
+
 private:
 	std::shared_ptr<material> base;
 	color tint;
@@ -225,6 +286,11 @@ public:
 	color emitted(double, double, const point3&) const override {
 		return color(0, 0, 0);
 	}
+
+	color get_base_color(double u, double v, const point3& p) const override {
+		return albedo;
+	}
+
 
 private:
 	color albedo;          // Couleur du matériau
@@ -284,6 +350,11 @@ public:
 		return true;
 	}
 
+	color get_base_color(double u, double v, const point3& p) const override {
+		return base ? base->get_base_color(u, v, p) : color(1, 1, 1);
+	}
+
+
 private:
 	// conversion wavelength (m) -> rgb approximatif (very simple)
 	static inline color wavelength_to_rgb(double lambda) noexcept {
@@ -332,6 +403,12 @@ public:
 
 		return base->scatter(r_in, rec, attenuation, scattered);
 	}
+
+	color get_base_color(double u, double v, const point3& p) const override {
+		return base ? base->get_base_color(u, v, p) : color(1, 1, 1);
+	}
+
+
 };
 
 class bump_normal : public material {
@@ -374,6 +451,11 @@ public:
 		// Déléguer à la matière de base
 		return base->scatter(r_in, mod_rec, attenuation, scattered);
 	}
+
+	color get_base_color(double u, double v, const point3& p) const override {
+		return base ? base->get_base_color(u, v, p) : color(1, 1, 1);
+	}
+
 };
 
 #endif 

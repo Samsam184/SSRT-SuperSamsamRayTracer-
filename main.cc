@@ -415,8 +415,8 @@ void all_feature_cornell_box() {
     auto green = make_shared<lambertian>(color(.12, .45, .15));
     //auto metallic_blue = make_shared<coat>(red, 1.5, color(.2, .1, 1));
     auto glass = make_shared<dielectric>(1.33);
-    auto light = make_shared<diffuse_light>(color(5, 5, 5));
-    auto mat = make_shared<bump_normal>(make_shared<lambertian>(color(.65, .05, .05)), make_shared<other_image_texture>("D:/SSRT/external/bump_texture.png"), 1);
+    auto light = make_shared<diffuse_light>(color(8, 8, 8));
+    auto mat = make_shared<metal>(color(.65, .05, .05), .5);
 
     //Cornell Box
     world.add(make_shared<quad>(point3(555, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), green));
@@ -454,7 +454,7 @@ void all_feature_cornell_box() {
 
     //std::cout << "Set Image Height : ";
     //std::cin >> 
-        cam.image_width = 1920;
+        cam.image_width = 540;
     //std::cout << "Set Aspect Ratio : ";
     //std::cin >> 
         cam.aspect_ratio = 1;
@@ -462,7 +462,7 @@ void all_feature_cornell_box() {
     //std::cin >> 
         cam.vfov = 35;
 
-    cam.samples_per_pixel = 5;
+    cam.samples_per_pixel = 8;
     cam.max_depth = 50;
     cam.background = color(0, 0, 0);
 
