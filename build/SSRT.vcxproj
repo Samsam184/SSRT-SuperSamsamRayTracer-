@@ -493,6 +493,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\SSRT\aabb_packet.h" />
     <ClInclude Include="D:\SSRT\bvh_sah.h" />
     <ClInclude Include="D:\SSRT\onb.h" />
+    <ClInclude Include="D:\SSRT\cameraMT.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

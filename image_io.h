@@ -174,7 +174,7 @@ bool write_exr_multilayer(const std::string& filename,
         return false;
     }
 
-    std::cout << "✅ Saved multi-layer EXR: " << filename << std::endl;
+    std::cout << "Saved multi-layer EXR: " << filename << std::endl;
     return true;
 }
 

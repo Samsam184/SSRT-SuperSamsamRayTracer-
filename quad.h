@@ -14,6 +14,17 @@ public:
         D = dot(normal, Q);
         w = n / dot(n, n);
         set_bounding_box();
+        
+        uint64_t local_state = rng_state.load();
+        uint64_t rnd = xorshift64(local_state);
+        rng_state.store(local_state);
+        object_id = static_cast<int>(rnd % 256);
+
+        float r = ((rnd >> 16) & 0xFF) / 255.0f;
+        float g = ((rnd >> 8) & 0xFF) / 255.0f;
+        float b = ((rnd & 0xFF)) / 255.0f;
+        object_color = color(r, g, b);
+        
     }
 
     void set_bounding_box() {
@@ -42,6 +53,8 @@ public:
         rec.p = intersection;
         rec.mat = mat;
         rec.set_face_normal(r, normal);
+        rec.object_id = object_id;
+        rec.object_color = object_color;
         return true;
     }
 
@@ -61,10 +74,17 @@ private:
     aabb bbox;
     vec3 normal;
     double D;
+    int object_id;
+    color object_color;
+    inline static std::atomic<uint64_t> rng_state = 0x1394418719732717ULL;
 };
 
 inline shared_ptr<hittable_list> box(const point3& a, const point3& b, shared_ptr<material> mat)
 {
+    int object_id;
+    color object_color;
+    static std::atomic<uint64_t> rng_state = 0xDEA32758EF123456ULL;
+
     auto sides = make_shared<hittable_list>();
 
     auto min = point3(fmin(a.x(), b.x()), fmin(a.y(), b.y()), fmin(a.z(), b.z()));
@@ -80,6 +100,16 @@ inline shared_ptr<hittable_list> box(const point3& a, const point3& b, shared_pt
     sides->add(make_shared<quad>(point3(min.x(), min.y(), min.z()), dz, dy, mat)); // left
     sides->add(make_shared<quad>(point3(min.x(), max.y(), max.z()), dx, -dz, mat)); // top
     sides->add(make_shared<quad>(point3(min.x(), min.y(), min.z()), dx, dz, mat)); // bottom
+
+    uint64_t local_state = rng_state.load();
+    uint64_t rnd = xorshift64(local_state);
+    rng_state.store(local_state);
+    object_id = static_cast<int>(rnd % 256);
+
+    float j = ((rnd >> 16) & 0xFF) / 255.0f;
+    float k = ((rnd >> 8) & 0xFF) / 255.0f;
+    float l = ((rnd & 0xFF)) / 255.0f;
+    object_color = color(j, k, l);
 
     return sides;
 }

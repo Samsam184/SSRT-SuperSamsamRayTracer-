@@ -2,6 +2,8 @@
 #define SPHERE_H
 
 #include "hittable.h"
+#include <atomic>
+#include "fast_rng.h"
 #ifdef USE_PACKET_TRACING
 #include "packet.h"
 #endif
@@ -12,10 +14,20 @@ public:
     
     // sphere immobile
     sphere(const point3& static_center, double radius, shared_ptr<material> mat)
-        : center(static_center, vec3(0,0,0)), radius(std::fmax(0, radius)), mat(mat) 
+        : center(static_center, vec3(0,0,0)), radius(std::fmax(0, radius)), mat(mat)
     {
         auto rvec = vec3(radius, radius, radius);
         bbox = aabb(static_center - rvec, static_center + rvec);
+    
+        uint64_t local_state = rng_state.load();
+        uint64_t rnd = xorshift64(local_state);
+        rng_state.store(local_state);
+        object_id = static_cast<int>(rnd % 256);
+
+        float r = ((rnd >> 16) & 0xFF) / 255.0f;
+        float g = ((rnd >> 8) & 0xFF) / 255.0f;
+        float b = ((rnd & 0xFF)) / 255.0f;
+        object_color = color(r, g, b);
     }
     
     
@@ -27,6 +39,17 @@ public:
         aabb box1(center.at(0) - rvec, center.at(0) + rvec);
         aabb box2(center.at(0) - rvec, center.at(1) + rvec);
         bbox = aabb::surrounding_box(box1, box2);
+
+        uint64_t local_state = rng_state.load();
+        uint64_t rnd = xorshift64(local_state);
+        rng_state.store(local_state);
+        object_id = static_cast<int>(rnd % 256);
+
+        float r = ((rnd >> 16) & 0xFF) / 255.0f;
+        float g = ((rnd >> 8) & 0xFF) / 255.0f;
+        float b = ((rnd & 0xFF)) / 255.0f;
+        object_color = color(r, g, b);
+
     }
 
 
@@ -58,6 +81,9 @@ public:
         rec.set_face_normal(r, outward_normal);
         get_sphere_uv(outward_normal, rec.u, rec.v);
         rec.mat = mat;
+        rec.object_id = object_id;
+        rec.object_color = object_color;
+
 
         return true;
     }
@@ -109,6 +135,9 @@ private:
     double radius;
     shared_ptr<material> mat;
     aabb bbox;
+    int object_id;
+    color object_color;
+    inline static std::atomic<uint64_t> rng_state = 0xDEA3574354345678ULL;
 
     static void get_sphere_uv(const point3& p, double& u, double& v) {
         auto theta = std::acos(-p.y());

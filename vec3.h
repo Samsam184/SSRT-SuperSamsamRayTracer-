@@ -102,6 +102,17 @@ inline vec3 operator/(const vec3& v, double t) noexcept {
 	return (1 / t) * v;
 }
 
+inline bool operator==(const vec3& a, const vec3& b) {
+	const double eps = 1e-6;
+	return fabs(a.x() - b.x()) < eps &&
+		fabs(a.y() - b.y()) < eps &&
+		fabs(a.z() - b.z()) < eps;
+}
+
+inline bool operator!=(const vec3& a, const vec3& b) {
+	return !(a == b);
+}
+
 inline __forceinline double dot(const vec3& u, const vec3& v) noexcept {
 #ifdef USE_SIMD
 	float af[4] = { static_cast<float>(u.e[0]), static_cast<float>(u.e[1]), static_cast<float>(u.e[2]), 0.0f };

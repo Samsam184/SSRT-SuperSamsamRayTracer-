@@ -287,7 +287,8 @@
 				12,
 				13,
 				14,
-				15
+				15,
+				16
 			]
 		}
 	],
@@ -372,6 +373,11 @@
 		{
 			"backtrace" : 2,
 			"path" : "onb.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "cameraMT.h",
 			"sourceGroupIndex" : 1
 		}
 	],

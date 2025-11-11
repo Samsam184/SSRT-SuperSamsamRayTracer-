@@ -8,9 +8,30 @@
 class constant_medium : public hittable {
 public:
 	
-	constant_medium(shared_ptr<hittable> boundary, double density, shared_ptr<texture> tex) : boundary(boundary), neg_inv_density(-1 / density), phase_function(make_shared<isotropic>(tex)){}
+	constant_medium(shared_ptr<hittable> boundary, double density, shared_ptr<texture> tex) : boundary(boundary), neg_inv_density(-1 / density), phase_function(make_shared<isotropic>(tex)){
+	
+		uint64_t local_state = rng_state.load();
+		uint64_t rnd = xorshift64(local_state);
+		rng_state.store(local_state);
+		object_id = static_cast<int>(rnd % 256);
 
-	constant_medium(shared_ptr<hittable> boundary, double density, const color& albedo) : boundary(boundary), neg_inv_density(-1/density), phase_function(make_shared<isotropic>(albedo)) {}
+		float r = ((rnd >> 16) & 0xFF) / 255.0f;
+		float g = ((rnd >> 8) & 0xFF) / 255.0f;
+		float b = ((rnd & 0xFF)) / 255.0f;
+		object_color = color(r, g, b);
+	}
+
+	constant_medium(shared_ptr<hittable> boundary, double density, const color& albedo) : boundary(boundary), neg_inv_density(-1/density), phase_function(make_shared<isotropic>(albedo)) {
+		uint64_t local_state = rng_state.load();
+		uint64_t rnd = xorshift64(local_state);
+		rng_state.store(local_state);
+		object_id = static_cast<int>(rnd % 256);
+
+		float r = ((rnd >> 16) & 0xFF) / 255.0f;
+		float g = ((rnd >> 8) & 0xFF) / 255.0f;
+		float b = ((rnd & 0xFF)) / 255.0f;
+		object_color = color(r, g, b);
+	}
 
 	inline color get_base_color(double u, double v, const point3& p) const noexcept {
 		return phase_function ? phase_function->get_base_color(u, v, p) : color(1, 1, 1);
@@ -57,6 +78,7 @@ public:
 		rec.normal = vec3(1, 0, 0);
 		rec.front_face = true;
 		rec.mat = phase_function;
+		rec.object_id = object_id;
 
 		return true;
 
@@ -70,6 +92,9 @@ private:
 	shared_ptr<hittable> boundary;
 	double neg_inv_density;
 	shared_ptr<material> phase_function;
+	int object_id;
+	color object_color;
+	inline static std::atomic<uint64_t> rng_state = 0xDEADBE257345678ULL;
 };
 
 #endif

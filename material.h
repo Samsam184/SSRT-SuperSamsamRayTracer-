@@ -57,8 +57,6 @@ public:
 		return tex ? tex->value(u, v, p) : color(1,1,1);
 	}
 
-
-
 private: 
 	color albedo;
 };
@@ -84,7 +82,6 @@ public:
 	color get_base_color(double u, double v, const point3& p) const override {
 		return albedo;
 	}
-
 
 private: 
 	color albedo;
@@ -211,7 +208,6 @@ public:
 	color get_base_color(double u, double v, const point3& p) const override {
 		return base ? base->get_base_color(u, v, p) : coat_tint;
 	}
-
 
 };
 
