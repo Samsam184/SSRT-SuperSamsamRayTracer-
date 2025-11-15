@@ -54,6 +54,18 @@
     <ClInclude Include="D:\SSRT\cameraMT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\SSRT\GGX.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\SSRT\CMakeLists.txt" />

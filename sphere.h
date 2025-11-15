@@ -13,7 +13,7 @@ public:
     
     
     // sphere immobile
-    sphere(const point3& static_center, double radius, shared_ptr<material> mat)
+    sphere(const vec3& static_center, double radius, shared_ptr<material> mat)
         : center(static_center, vec3(0,0,0)), radius(std::fmax(0, radius)), mat(mat)
     {
         auto rvec = vec3(radius, radius, radius);
@@ -32,7 +32,7 @@ public:
     
     
     // sphere qui bouge
-    sphere(const point3& center1, const point3& center2, double radius, shared_ptr<material> mat)
+    sphere(const vec3& center1, const vec3& center2, double radius, shared_ptr<material> mat)
         : center(center1, center2 - center1), radius(std::fmax(0, radius)), mat(mat)
     {
         auto rvec = vec3(radius, radius, radius);
@@ -55,7 +55,7 @@ public:
 
 
     inline __forceinline bool hit(const ray& r, interval ray_t, hit_record& rec) const noexcept override {
-        point3 current_center = center.at(r.time());
+        vec3 current_center = center.at(r.time());
         vec3 oc = current_center - r.origin();
         auto a = r.direction().length_squared();
         auto h = dot(r.direction(), oc);
@@ -139,7 +139,7 @@ private:
     color object_color;
     inline static std::atomic<uint64_t> rng_state = 0xDEA3574354345678ULL;
 
-    static void get_sphere_uv(const point3& p, double& u, double& v) {
+    static void get_sphere_uv(const vec3& p, double& u, double& v) {
         auto theta = std::acos(-p.y());
         auto phi = std::atan2(-p.z(), p.x()) + pi;
 

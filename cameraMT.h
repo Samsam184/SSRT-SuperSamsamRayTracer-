@@ -35,8 +35,8 @@ public:
     int max_depth = 550;
     color background;
     double vfov = 90;
-    point3 lookfrom = point3(0, 0, 0);
-    point3 lookat = point3(0, 0, 0);
+    vec3 lookfrom = vec3(0, 0, 0);
+    vec3 lookat = vec3(0, 0, 0);
     vec3 vup = vec3(0, 1, 0);
     double defocus_angle = 0;
     double focus_dist = 10;
@@ -116,7 +116,7 @@ public:
                     color pixel_id(0, 0, 0);
                     color pixel_uv(0, 0, 0);
 
-                    const point3 pixel_base = pixel00_location + i * pixel_delta_u + j * pixel_delta_v;
+                    const vec3 pixel_base = pixel00_location + i * pixel_delta_u + j * pixel_delta_v;
 
                     for (int sample = 0; sample < samples_per_pixel; ++sample) {
                         float rx = randf(rng_state);
@@ -125,12 +125,11 @@ public:
                         const vec3 pixel_sample =
                             pixel_base + (rx - 0.5f) * pixel_delta_u + (ry - 0.5f) * pixel_delta_v;
 
-                        const point3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
+                        const vec3 ray_origin = (defocus_angle <= 0) ? center : defocus_disk_sample();
                         const vec3 ray_direction = pixel_sample - ray_origin;
 
                         ray r(ray_origin, ray_direction);
 
-                        // Variables de sortie
                         color alb_out, nrm_out, pos_out, emit_out;
                         float depth_out = 0.0f, rough_out = 0.0f, metal_out = 0.0f, ao_out = 0.0f;
                         color id_out, uv_out;
@@ -215,15 +214,11 @@ public:
             {"UV", uvbuffer}
         };
 
-
-        // --- Patch: Dynamic AOV sorting by target DCC ---
-        // Available modes: "natron", "blender", "nuke"
-        std::string target_dcc = "natron"; // change ici selon ton viewer
+        std::string target_dcc = "natron";
         auto sort_layers_for_dcc = [&](std::string mode) {
             std::vector<AOVLayer> sorted;
 
             if (mode == "natron") {
-                // Natron: wants RGBA first, then utility AOVs grouped
                 auto order = std::vector<std::string>{
                     "AO", "ID", "RGBA", "UV",
                     "albedo", "depth", "emission", "metallic",
@@ -235,36 +230,10 @@ public:
                     if (it != layers.end()) sorted.push_back(*it);
                 }
             }
-            else if (mode == "blender") {
-                // Blender: RGBA first, prefers shading-related AOVs next
-                auto order = std::vector<std::string>{
-                    "RGBA", "albedo", "normal", "roughness", "metallic",
-                    "emission", "position", "depth", "AO", "UV", "ID"
-                };
-                for (auto& name : order) {
-                    auto it = std::find_if(layers.begin(), layers.end(),
-                        [&](const AOVLayer& l) { return l.name == name; });
-                    if (it != layers.end()) sorted.push_back(*it);
-                }
-            }
-            else if (mode == "nuke") {
-                // Nuke: RGBA first, emission & ID last
-                auto order = std::vector<std::string>{
-                    "RGBA", "albedo", "normal", "position", "depth",
-                    "AO", "roughness", "metallic", "UV", "emission", "ID"
-                };
-                for (auto& name : order) {
-                    auto it = std::find_if(layers.begin(), layers.end(),
-                        [&](const AOVLayer& l) { return l.name == name; });
-                    if (it != layers.end()) sorted.push_back(*it);
-                }
-            }
             return sorted;
             };
 
-        // Apply sort
         layers = sort_layers_for_dcc(target_dcc);
-
         write_exr_multilayer("renders/SSRT_Linear_v001.exr", layers, image_width, image_height);
         std::clog << "\nRender ended correctly!\n\n";
     }
@@ -272,8 +241,8 @@ public:
 private:
     int image_height;
     double pixel_samples_scale;
-    point3 center;
-    point3 pixel00_location;
+    vec3 center;
+    vec3 pixel00_location;
     vec3 pixel_delta_u, pixel_delta_v;
     vec3 u, v, w;
     vec3 defocus_disk_u, defocus_disk_v;
@@ -306,12 +275,11 @@ private:
         defocus_disk_v = v * defocus_radius;
     }
 
-    point3 defocus_disk_sample() const {
+    vec3 defocus_disk_sample() const {
         auto p = random_in_unit_disk();
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
-    // === RAY COLOR ===
     color ray_color(
         const ray& r_in, int max_depth, const hittable& world,
         color* out_albedo, color* out_normal, float* out_depth, color* out_position,
@@ -341,43 +309,29 @@ private:
                 if (out_rough) {
                     double rough = 0.0;
 
-                    if (dynamic_cast<const lambertian*>(mat_ptr)) {
-                        rough = 1.0;
-                    }
-
-                    else if (auto m = dynamic_cast<const metal*>(mat_ptr)) {
-                        rough = m->roughness;
-                    }
-
-                    else if (auto d = dynamic_cast<const dielectric*>(mat_ptr)) {
-                        rough = 0.0;
-                    }
-
-                    else if (auto q = dynamic_cast<const coat*>(mat_ptr)) {
-                        rough = q->roughness;
-                    }
+                    if (dynamic_cast<const lambertian*>(mat_ptr)) rough = 1.0;
+                    else if (auto m = dynamic_cast<const metal*>(mat_ptr)) rough = m->roughness;
+                    else if (auto d = dynamic_cast<const dielectric*>(mat_ptr)) rough = 0.0;
+                    else if (auto q = dynamic_cast<const coat*>(mat_ptr)) rough = q->roughness;
 
                     *out_rough = rough;
                 }
                 if (out_metal) *out_metal = mat_ptr ? mat_ptr->metallic : 0;
                 if (out_emission) *out_emission = emitted;
+
                 if (out_AO) {
                     const int ao_samples = 3;
                     int occluded = 0;
-
                     for (int s = 0; s < ao_samples; s++) {
                         vec3 dir = random_on_hemisphere(rec.normal);
                         ray ao_ray(rec.p + rec.normal * 0.001, dir);
-
                         hit_record ao_hit;
-                        if (world.hit(ao_ray, interval(.001, infinity), ao_hit)) {
-                            occluded++;
-                        }
+                        if (world.hit(ao_ray, interval(.001, infinity), ao_hit)) occluded++;
                     }
-
                     float ao_factor = 1.0f - (float(occluded) / ao_samples);
                     *out_AO = ao_factor;
                 }
+
                 if (out_ID) *out_ID = rec.object_color;
                 if (out_uv) *out_uv = color(rec.u, rec.v, 0);
                 first_hit = false;

@@ -33,7 +33,7 @@ public:
 		object_color = color(r, g, b);
 	}
 
-	inline color get_base_color(double u, double v, const point3& p) const noexcept {
+	inline color get_base_color(double u, double v, const vec3& p) const noexcept {
 		return phase_function ? phase_function->get_base_color(u, v, p) : color(1, 1, 1);
 	}
 

@@ -19,11 +19,11 @@ public:
 		return false;
 	}
 
-	virtual color emitted(double u, double v, const point3& p) const {
+	virtual color emitted(double u, double v, const vec3& p) const {
 		return color(0, 0, 0);
 	}
 
-	virtual color get_base_color(double u, double v, const point3& p) const {
+	virtual color get_base_color(double u, double v, const vec3& p) const {
 		return color(1, 1, 1);
 	}
 
@@ -53,7 +53,7 @@ public:
 		return true;
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return tex ? tex->value(u, v, p) : color(1,1,1);
 	}
 
@@ -79,7 +79,7 @@ public:
 		return (dot(scattered.direction(), rec.normal) > 0);
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return albedo;
 	}
 
@@ -123,7 +123,7 @@ public:
 		return true;
 	}
 
-	color get_base_color(double, double, const point3&) const override {
+	color get_base_color(double, double, const vec3&) const override {
 		return color(1, 1, 1); 
 	}
 
@@ -143,11 +143,11 @@ public:
 	diffuse_light(shared_ptr<texture> tex) : tex(tex){}
 	diffuse_light(const color& emit) : tex(make_shared<solid_color>(emit)){}
 
-	color emitted(double u, double v, const point3& p) const override {
+	color emitted(double u, double v, const vec3& p) const override {
 		return tex->value(u, v, p);
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return tex ? tex->value(u, v, p) : color(1, 1, 1);
 	}
 
@@ -167,7 +167,7 @@ public:
 		return true;
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return tex ? tex->value(u, v, p) : color(1, 1, 1);
 	}
 
@@ -205,7 +205,7 @@ public:
 		return base->scatter(r_in, rec, attenuation, scattered);
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return base ? base->get_base_color(u, v, p) : coat_tint;
 	}
 
@@ -238,7 +238,7 @@ public:
 		return true;
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return base ? base->get_base_color(u, v, p) : tint;
 	}
 
@@ -267,7 +267,7 @@ public:
 		double t = -scatter_dist * std::log(random_double());  // Beer-Lambert law
 
 		// Origine du rayon légèrement *à l’intérieur* de la surface
-		point3 p_inside = rec.p - rec.normal * 0.001;
+		vec3 p_inside = rec.p - rec.normal * 0.001;
 
 		// Rayon de sortie : on considère qu’il ressort plus loin dans la même direction
 		scattered = ray(p_inside + dir * t, dir, r_in.time());
@@ -279,11 +279,11 @@ public:
 		return true;
 	}
 
-	color emitted(double, double, const point3&) const override {
+	color emitted(double, double, const vec3&) const override {
 		return color(0, 0, 0);
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return albedo;
 	}
 
@@ -346,7 +346,7 @@ public:
 		return true;
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return base ? base->get_base_color(u, v, p) : color(1, 1, 1);
 	}
 
@@ -400,7 +400,7 @@ public:
 		return base->scatter(r_in, rec, attenuation, scattered);
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return base ? base->get_base_color(u, v, p) : color(1, 1, 1);
 	}
 
@@ -448,7 +448,7 @@ public:
 		return base->scatter(r_in, mod_rec, attenuation, scattered);
 	}
 
-	color get_base_color(double u, double v, const point3& p) const override {
+	color get_base_color(double u, double v, const vec3& p) const override {
 		return base ? base->get_base_color(u, v, p) : color(1, 1, 1);
 	}
 

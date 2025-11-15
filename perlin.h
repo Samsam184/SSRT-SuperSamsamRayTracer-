@@ -12,7 +12,7 @@ public:
 		perlin_generate_perm(perm_z);
 	}
 
-	double noise(const point3& p) const {
+	double noise(const vec3& p) const {
 		auto u = p.x() - std::floor(p.x());
 		auto v = p.y() - std::floor(p.y());
 		auto w = p.z() - std::floor(p.z());
@@ -37,7 +37,7 @@ public:
 		return perlin_interp(c, u, v, w);
 	}
 
-	double turb(const point3& p, int depth) const {
+	double turb(const vec3& p, int depth) const {
 
 		auto accum = 0.0;
 		auto temp_p = p;

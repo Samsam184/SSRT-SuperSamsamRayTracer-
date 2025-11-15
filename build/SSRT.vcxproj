@@ -494,6 +494,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\SSRT\bvh_sah.h" />
     <ClInclude Include="D:\SSRT\onb.h" />
     <ClInclude Include="D:\SSRT\cameraMT.h" />
+    <ClInclude Include="D:\SSRT\GGX.h" />
+    <ClInclude Include="D:\SSRT\mesh.h" />
+    <ClInclude Include="D:\SSRT\triangle.h" />
+    <ClInclude Include="D:\SSRT\transform.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

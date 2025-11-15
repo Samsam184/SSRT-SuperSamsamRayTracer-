@@ -16,12 +16,38 @@ public:
         pad_to_minimums();
     }
 
-    aabb(const point3& a, const point3& b) {
+    aabb(const vec3& a, const vec3& b) {
         x = (a[0] <= b[0]) ? interval(a[0], b[0]) : interval(b[0], a[0]);
         y = (a[1] <= b[1]) ? interval(a[1], b[1]) : interval(b[1], a[1]);
         z = (a[2] <= b[2]) ? interval(a[2], b[2]) : interval(b[2], a[2]);
         pad_to_minimums();
     }
+
+    // ------------------------------------------------------------
+    //  AJOUTS indispensables pour mesh / triangle / transform
+    // ------------------------------------------------------------
+
+    // Renvoie le point minimum du AABB
+    vec3 min() const {
+        return vec3(x.min, y.min, z.min);
+    }
+
+    // Renvoie le point maximum du AABB
+    vec3 max() const {
+        return vec3(x.max, y.max, z.max);
+    }
+
+    // Fusion de deux AABB dans un constructeur (comme RTOW3)
+    aabb(const aabb& box0, const aabb& box1) {
+        x = interval(fmin(box0.x.min, box1.x.min),
+            fmax(box0.x.max, box1.x.max));
+        y = interval(fmin(box0.y.min, box1.y.min),
+            fmax(box0.y.max, box1.y.max));
+        z = interval(fmin(box0.z.min, box1.z.min),
+            fmax(box0.z.max, box1.z.max));
+    }
+
+    // ------------------------------------------------------------
 
     const interval& axis_interval(int n) const {
         if (n == 1) return y;
@@ -30,7 +56,7 @@ public:
     }
 
     bool hit(const ray& r, interval ray_t) const {
-        const point3& ray_orig = r.origin();
+        const vec3& ray_orig = r.origin();
         const vec3& ray_dir = r.direction();
 
         for (int axis = 0; axis < 3; axis++) {
@@ -56,12 +82,14 @@ public:
     }
 
     static aabb surrounding_box(const aabb& box0, const aabb& box1) {
-        point3 small(fmin(box0.x.min, box1.x.min),
+        vec3 small(fmin(box0.x.min, box1.x.min),
             fmin(box0.y.min, box1.y.min),
             fmin(box0.z.min, box1.z.min));
-        point3 big(fmax(box0.x.max, box1.x.max),
+
+        vec3 big(fmax(box0.x.max, box1.x.max),
             fmax(box0.y.max, box1.y.max),
             fmax(box0.z.max, box1.z.max));
+
         return aabb(small, big);
     }
 

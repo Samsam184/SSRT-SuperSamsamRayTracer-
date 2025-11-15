@@ -72,7 +72,7 @@ class vec3 {
 		}
 };
 
-using point3 = vec3;
+//using vec3 = vec3;
 
 inline std::ostream& operator << (std::ostream& out, const vec3& v) noexcept{
 	return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
@@ -191,5 +191,9 @@ inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) noexce
 	return r_out_perp + r_out_parallel;
 }
 
+inline bool near_zero(const vec3& v) noexcept {
+	const auto s = 1e-8;
+	return (fabs(v.x()) < s) && (fabs(v.y()) < s) && (fabs(v.z()) < s);
+}
 
 #endif

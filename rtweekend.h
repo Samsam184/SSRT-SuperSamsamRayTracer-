@@ -20,6 +20,7 @@ using std::shared_ptr;
 const double infinity = std::numeric_limits<double>::infinity();
 const double pi = 3.1415926535897932385;
 
+
 // Utility Functions
 
 inline double degrees_to_radians(double degrees) {
@@ -28,10 +29,9 @@ inline double degrees_to_radians(double degrees) {
 
 inline double random_double() noexcept {
     
-    static pcg32 rng(std::random_device{}());
-    std::uniform_real_distribution<double> dist(0.0, 1.0);
+    uint64_t rng_state(1337u * 0xDEADBEEF12345678ULL * std::random_device{}());
 
-    double r = dist(rng);
+    double r = randf(rng_state);
     return r;
     
     /*

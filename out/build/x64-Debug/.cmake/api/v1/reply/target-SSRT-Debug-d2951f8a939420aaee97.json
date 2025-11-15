@@ -288,7 +288,11 @@
 				13,
 				14,
 				15,
-				16
+				16,
+				17,
+				18,
+				19,
+				20
 			]
 		}
 	],
@@ -378,6 +382,26 @@
 		{
 			"backtrace" : 2,
 			"path" : "cameraMT.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "GGX.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "mesh.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "triangle.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "transform.h",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -6,7 +6,7 @@
 
 class quad : public hittable {
 public:
-    quad(const point3& Q, const vec3& u, const vec3& v, shared_ptr<material> mat)
+    quad(const vec3& Q, const vec3& u, const vec3& v, shared_ptr<material> mat)
         : Q(Q), u(u), v(v), mat(mat)
     {
         auto n = cross(u, v);
@@ -68,7 +68,7 @@ public:
     }
 
 private:
-    point3 Q;
+    vec3 Q;
     vec3 u, v, w;
     shared_ptr<material> mat;
     aabb bbox;
@@ -79,7 +79,7 @@ private:
     inline static std::atomic<uint64_t> rng_state = 0x1394418719732717ULL;
 };
 
-inline shared_ptr<hittable_list> box(const point3& a, const point3& b, shared_ptr<material> mat)
+inline shared_ptr<hittable_list> box(const vec3& a, const vec3& b, shared_ptr<material> mat)
 {
     int object_id;
     color object_color;
@@ -87,19 +87,19 @@ inline shared_ptr<hittable_list> box(const point3& a, const point3& b, shared_pt
 
     auto sides = make_shared<hittable_list>();
 
-    auto min = point3(fmin(a.x(), b.x()), fmin(a.y(), b.y()), fmin(a.z(), b.z()));
-    auto max = point3(fmax(a.x(), b.x()), fmax(a.y(), b.y()), fmax(a.z(), b.z()));
+    auto min = vec3(fmin(a.x(), b.x()), fmin(a.y(), b.y()), fmin(a.z(), b.z()));
+    auto max = vec3(fmax(a.x(), b.x()), fmax(a.y(), b.y()), fmax(a.z(), b.z()));
 
     auto dx = vec3(max.x() - min.x(), 0, 0);
     auto dy = vec3(0, max.y() - min.y(), 0);
     auto dz = vec3(0, 0, max.z() - min.z());
 
-    sides->add(make_shared<quad>(point3(min.x(), min.y(), max.z()), dx, dy, mat)); // front
-    sides->add(make_shared<quad>(point3(max.x(), min.y(), max.z()), -dz, dy, mat)); // right
-    sides->add(make_shared<quad>(point3(max.x(), min.y(), min.z()), -dx, dy, mat)); // back
-    sides->add(make_shared<quad>(point3(min.x(), min.y(), min.z()), dz, dy, mat)); // left
-    sides->add(make_shared<quad>(point3(min.x(), max.y(), max.z()), dx, -dz, mat)); // top
-    sides->add(make_shared<quad>(point3(min.x(), min.y(), min.z()), dx, dz, mat)); // bottom
+    sides->add(make_shared<quad>(vec3(min.x(), min.y(), max.z()), dx, dy, mat)); // front
+    sides->add(make_shared<quad>(vec3(max.x(), min.y(), max.z()), -dz, dy, mat)); // right
+    sides->add(make_shared<quad>(vec3(max.x(), min.y(), min.z()), -dx, dy, mat)); // back
+    sides->add(make_shared<quad>(vec3(min.x(), min.y(), min.z()), dz, dy, mat)); // left
+    sides->add(make_shared<quad>(vec3(min.x(), max.y(), max.z()), dx, -dz, mat)); // top
+    sides->add(make_shared<quad>(vec3(min.x(), min.y(), min.z()), dx, dz, mat)); // bottom
 
     uint64_t local_state = rng_state.load();
     uint64_t rnd = xorshift64(local_state);
