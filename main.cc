@@ -5,9 +5,11 @@ Installer vcpkg
 
 avoir les bibliothèques suivantes :
 
-    - OpenImageIO
-    - TinyEXR
-    - OIDN
+    - OpenImageIO via vcpkg
+    - TinyEXR via vcpkg
+    - OIDN via internet
+    - FBX SDK via internet
+    - Alembic via vcpkg
 
     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Pour OIDN, j'ai pas encore trouvé comment download via VCPKG... Donc pour le moment, je télécharge OIDN depuis le site de Intel, je décompresse dans le dossier SSRT
@@ -71,6 +73,8 @@ pointer vers le dossier ou se trouve le projet : en l'occurence chez moi "D:/SSR
 #include "quad.h"
 #include "constant_medium.h"
 #include "mesh.h"
+#include "fbx_loader.h"
+#include "abc_loader.h"
 
 
 void all_feature_cornell_box() {
@@ -84,22 +88,42 @@ void all_feature_cornell_box() {
     auto white = make_shared<lambertian>(color(.73, .73, .73));
     auto green = make_shared<lambertian>(color(.12, .45, .15));
     auto glass = make_shared<dielectric>(1.33);
-    auto light = make_shared<diffuse_light>(color(2, 2, 2));
-    auto mat = make_shared<lambertian>(color(1, 1, 1));
+    auto light = make_shared<diffuse_light>(color(8, 8, 8));
+    auto mat = make_shared<dielectric>(1.55);
 
     //Cornell Box
     world.add(make_shared<quad>(vec3(555, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), green));
     world.add(make_shared<quad>(vec3(0, 0, 0), vec3(0, 555, 0), vec3(0, 0, 555), red));
     world.add(make_shared<quad>(vec3(113, 554, 127), vec3(330, 0, 0), vec3(0, 0, 305), light));
-    world.add(make_shared<quad>(vec3(0, 0, 0), vec3(555, 0, 0), vec3(0, 0, 555), white));
+    world.add(make_shared<quad>(vec3(-555, 0, -555), vec3(5555, 0, 0), vec3(0, 0, 5555), white));
     world.add(make_shared<quad>(vec3(555, 555, 555), vec3(-555, 0, 0), vec3(0, 0, -555), white));
     world.add(make_shared<quad>(vec3(0, 0, 555), vec3(555, 0, 0), vec3(0, 555, 0), white));
 
+    /*
+    auto teapod = make_shared<Mesh>("asset/shape.obj", mat);
+    auto scaled_teapod = make_shared<scale>(teapod, vec3(180, 180, 180));
+    auto rotated_teapod = make_shared<rotate_y>(scaled_teapod, 45);
+    auto translated_teapod = make_shared<translate>(rotated_teapod, vec3(260, 3, 200));
+    world.add(translated_teapod);
+    */
 
     auto teapod = make_shared<Mesh>("asset/teapod.obj", mat);
-    auto scaled_teapod = make_shared<scale>(teapod, vec3(80, 80, 80));
-    auto translated_teapod = make_shared<translate>(scaled_teapod, vec3(260, 20, 200));
+    auto teapod_scaled = make_shared<scale>(teapod, vec3(30, 30, 30));
+    auto teapod_rotated = make_shared<rotate_y>(teapod_scaled, 45);
+    auto translated_teapod = make_shared<translate>(teapod_rotated, vec3(260, 35, 200));
     world.add(translated_teapod);
+
+    auto teapod2 = LoadABC("asset/teapot_002.abc", mat);
+    auto teapod_scaled2 = make_shared<scale>(teapod2, vec3(30, 30, 30));
+    auto teapod_rotated2 = make_shared<rotate_y>(teapod_scaled2, 45);
+    auto translated_teapod2 = make_shared<translate>(teapod_rotated2, vec3(260, 350, 200));
+    world.add(translated_teapod2);
+
+    auto teapod3 = LoadFBX("asset/teapot.fbx", mat);
+    auto teapod_scaled3 = make_shared<scale>(teapod3, vec3(60, 60, 60));
+    auto teapod_rotated3 = make_shared<rotate_y>(teapod_scaled3, 45);
+    auto translated_teapod3 = make_shared<translate>(teapod_rotated3, vec3(260, 200, 200));
+    world.add(translated_teapod3);
 
     world = hittable_list(make_shared<bvh_node>(world));
 
@@ -108,7 +132,7 @@ void all_feature_cornell_box() {
 
     //std::cout << "Set Image Height : ";
     //std::cin >> 
-        cam.image_width = 1920;
+        cam.image_width = 3840;
     //std::cout << "Set Aspect Ratio : ";
     //std::cin >> 
         cam.aspect_ratio = 1;
@@ -117,7 +141,7 @@ void all_feature_cornell_box() {
         cam.vfov = 35;
 
     cam.samples_per_pixel = 8;
-    cam.max_depth = 50;
+    cam.max_depth = 3;
     cam.background = color(0, 0, 0);
 
     cam.lookfrom = vec3(278, 278, -800);
@@ -126,7 +150,7 @@ void all_feature_cornell_box() {
 
     cam.defocus_angle = 0;
   
-    cam.use_denoiser = true;
+    cam.use_denoiser = false;
 
     cam.render(world);
 
@@ -134,20 +158,6 @@ void all_feature_cornell_box() {
 }
 
 int main() {
-
-    /*
-    switch (9) {
-    case 1: static_spheres(); break;
-    case 2: checkered_spheres(); break;
-    case 3: earth(); break;
-    case 4: perlin_spheres(); break;
-    case 5: quads(); break;
-    case 6: simple_lights(); break;
-    case 7: cornell_box(); break;
-    case 8: smoke_cornell_box(); break;
-    case 9: all_feature_cornell_box(); break;
-    }
-    */
 
     std::ofstream log("benchmark_values/benchmark_results_v006.txt", std::ios::out);
     if (!log) {

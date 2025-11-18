@@ -25,6 +25,16 @@ C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC-CXX.cmake
 C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-MSVC.cmake
 C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake
 C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicConfig.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicConfigVersion.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicTargets-debug.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicTargets-release.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicTargets.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathConfig.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathConfigVersion.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathTargets-debug.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathTargets-release.cmake
+C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathTargets.cmake
 C:/Users/assam/vcpkg/installed/x64-windows/share/miniz/minizConfig.cmake
 C:/Users/assam/vcpkg/installed/x64-windows/share/miniz/minizConfigVersion.cmake
 C:/Users/assam/vcpkg/installed/x64-windows/share/miniz/minizTargets-debug.cmake

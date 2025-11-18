@@ -66,6 +66,12 @@
     <ClInclude Include="D:\SSRT\transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\SSRT\fbx_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\SSRT\abc_loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\SSRT\CMakeLists.txt" />

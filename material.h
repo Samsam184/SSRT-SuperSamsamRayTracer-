@@ -93,6 +93,7 @@ public:
 
 	mutable bool force_scatter_false = false;
 
+
 	dielectric(double refraction_index) : refraction_index(refraction_index) {
 		metallic = 0.0;
 		roughness = 0.0;

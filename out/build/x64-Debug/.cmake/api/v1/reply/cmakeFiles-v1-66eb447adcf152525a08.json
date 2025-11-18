@@ -200,6 +200,51 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/imath/ImathTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicTargets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/assam/vcpkg/installed/x64-windows/share/alembic/AlembicTargets-release.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

@@ -21,6 +21,7 @@
 #include "thread_pool.h"
 #include "morton2D.h"
 #include "OIDN.h"
+#include "fbx_loader.h"
 
 #ifdef USE_PACKET_TRACKING
 #include "packet.h"
@@ -280,71 +281,90 @@ private:
         return center + (p[0] * defocus_disk_u) + (p[1] * defocus_disk_v);
     }
 
-    color ray_color(
+    
+    inline __forceinline color ray_color(
         const ray& r_in, int max_depth, const hittable& world,
-        color* out_albedo, color* out_normal, float* out_depth, color* out_position,
-        float* out_rough, float* out_metal, color* out_emission,
-        float* out_AO, color* out_ID, color* out_uv
-    ) const noexcept {
-        color accumulated(0, 0, 0);
-        color throughput(1, 1, 1);
+        color* out_albedo = nullptr,
+        color* out_normal = nullptr,
+        float* out_depth = nullptr,
+        color* out_position = nullptr,
+        float* out_roughness = nullptr,
+        float* out_mettalic = nullptr,
+        color* out_emission = nullptr,
+        float* out_AO = nullptr,
+        color* out_ID = nullptr,
+        color* out_uv = nullptr
+    ) const noexcept
+    {
         ray current = r_in;
+        color attenuation(1, 1, 1);
+        color accumulated(0, 0, 0);
         bool first_hit = true;
 
-        for (int depth = 0; depth < max_depth; ++depth) {
+        for (int depth = 0; depth < max_depth; depth++) {
             hit_record rec;
             if (!world.hit(current, interval(0.001, infinity), rec)) {
-                accumulated += throughput * background;
+                accumulated += attenuation * background;
                 break;
             }
 
-            const material* mat_ptr = rec.mat.get();
-            color emitted = mat_ptr ? mat_ptr->emitted(rec.u, rec.v, rec.p) : color(0, 0, 0);
-
             if (first_hit) {
-                if (out_albedo) *out_albedo = mat_ptr ? mat_ptr->get_base_color(rec.u, rec.v, rec.p) : color(1, 1, 1);
-                if (out_normal) *out_normal = 0.5f * (rec.normal + vec3(1, 1, 1));
-                if (out_depth) *out_depth = (rec.p - lookfrom).length();
-                if (out_position) *out_position = rec.p;
-                if (out_rough) {
-                    double rough = 0.0;
+                if (out_albedo)
+                    *out_albedo = rec.mat->get_base_color(rec.u, rec.v, rec.p);
 
-                    if (dynamic_cast<const lambertian*>(mat_ptr)) rough = 1.0;
-                    else if (auto m = dynamic_cast<const metal*>(mat_ptr)) rough = m->roughness;
-                    else if (auto d = dynamic_cast<const dielectric*>(mat_ptr)) rough = 0.0;
-                    else if (auto q = dynamic_cast<const coat*>(mat_ptr)) rough = q->roughness;
+                if (out_normal)
+                    *out_normal = (rec.normal + vec3(1, 1, 1)) * 0.5;
 
-                    *out_rough = rough;
-                }
-                if (out_metal) *out_metal = mat_ptr ? mat_ptr->metallic : 0;
-                if (out_emission) *out_emission = emitted;
+                if (out_depth)
+                    *out_depth = (float)(rec.t);
+
+                if (out_position)
+                    *out_position = rec.p;
+
+                if (out_roughness)
+                    *out_roughness = rec.mat->roughness;
+
+                if (out_mettalic)
+                    *out_mettalic = rec.mat->metallic;
+
+                if (out_emission)
+                    *out_emission = rec.mat->emitted(rec.u, rec.v, rec.p);
 
                 if (out_AO) {
                     const int ao_samples = 3;
-                    int occluded = 0;
-                    for (int s = 0; s < ao_samples; s++) {
+                    int occluded_count = 0;
+
+                    for (int s = 0; s < ao_samples; ++s) {
                         vec3 dir = random_on_hemisphere(rec.normal);
                         ray ao_ray(rec.p + rec.normal * 0.001, dir);
                         hit_record ao_hit;
-                        if (world.hit(ao_ray, interval(.001, infinity), ao_hit)) occluded++;
+                        if (world.hit(ao_ray, interval(.001, infinity), ao_hit)) {
+                            occluded_count++;
+                        }
                     }
-                    float ao_factor = 1.0f - (float(occluded) / ao_samples);
-                    *out_AO = ao_factor;
+
+                    *out_AO = 1.0f - (float(occluded_count) / ao_samples);
                 }
 
-                if (out_ID) *out_ID = rec.object_color;
-                if (out_uv) *out_uv = color(rec.u, rec.v, 0);
+                if (out_ID)
+                    *out_ID = rec.object_color;
+
+                if (out_uv)
+                    *out_uv = color(rec.u, rec.v, 0);
+
                 first_hit = false;
             }
 
-            accumulated += throughput * emitted;
-
             ray scattered;
-            color attenuation;
-            if (!mat_ptr || !mat_ptr->scatter(current, rec, attenuation, scattered))
+            color emission = rec.mat->emitted(rec.u, rec.v, rec.p);
+            color atten;
+            if (!rec.mat->scatter(current, rec, atten, scattered)) {
+                accumulated += attenuation * emission;
                 break;
+            }
 
-            throughput = throughput * attenuation;
+            accumulated += attenuation * emission;
+            attenuation = attenuation * atten;
             current = scattered;
         }
 

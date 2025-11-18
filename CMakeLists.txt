@@ -12,13 +12,15 @@ else()
 	add_compile_options(-03 -march=native -ffast-math -funroll-loops)
 endif()
 
-add_executable(SSRT main.cc "rtw_exr_image.h" "perlin.h" "quad.h" "image_io.h" "constant_medium.h" "fast_rng.h" "thread_pool.h" "xoshiro128.h" "morton2D.h" "simd_vec3.h" "OIDN.h" "packet.h" "aabb_packet.h"  "bvh_sah.h" "onb.h" "cameraMT.h"  "GGX.h" "mesh.h" "triangle.h" "transform.h")
+add_executable(SSRT main.cc "rtw_exr_image.h" "perlin.h" "quad.h" "image_io.h" "constant_medium.h" "fast_rng.h" "thread_pool.h" "xoshiro128.h" "morton2D.h" "simd_vec3.h" "OIDN.h" "packet.h" "aabb_packet.h"  "bvh_sah.h" "onb.h" "cameraMT.h"  "GGX.h" "mesh.h" "triangle.h" "transform.h"    "fbx_loader.h"  "abc_loader.h")
 
 find_package(tinyexr CONFIG REQUIRED)
 target_link_libraries(SSRT PRIVATE unofficial::tinyexr::tinyexr)
 
 find_package(OpenColorIO CONFIG REQUIRED)
 target_link_libraries(SSRT PRIVATE OpenColorIO::OpenColorIO)
+
+
 
 # === OIDN ===
 set(OIDN_ROOT "${PROJECT_SOURCE_DIR}/external/oidn")
@@ -27,6 +29,30 @@ include_directories("${PROJECT_SOURCE_DIR}/external/oidn/include")
 link_directories("${PROJECT_SOURCE_DIR}/external/oidn/build/Release")
 target_link_libraries(SSRT PRIVATE OpenImageDenoise)
 
+# === FBXSDK ===
+set(FBXSDK_DIR "C:/Program Files/Autodesk/FBX/FBX SDK/2020.3.7/")
+
+include_directories("${FBXSDK_DIR}/include")
+
+# Release / Debug lib folders
+link_directories("${FBXSDK_DIR}/lib/x64/release")
+link_directories("${FBXSDK_DIR}/lib/x64/debug")
+
+# FBX Base lib
+target_link_libraries(SSRT PRIVATE libfbxsdk-md.lib)
+
+# === REQUIRED BY FBXSDK ===
+# libxml2 + zlib !!!!!
+target_link_libraries(SSRT PRIVATE
+    libxml2-md.lib
+    zlib-md.lib
+)
+
+
+
+# === Alembic ===
+find_package(Alembic CONFIG REQUIRED)
+target_link_libraries(SSRT PRIVATE Alembic::Alembic)
 
 # Copier automatiquement les DLL nécessaires à côté de l'exécutable
 add_custom_command(TARGET SSRT POST_BUILD
